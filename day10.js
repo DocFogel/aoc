@@ -4,28 +4,45 @@ class Context {
       this.signal = 1;
       this.accumulatedStrength = 0;
       this.interestingCycles = new Set([20, 60, 100, 140, 180, 220]);
+
+      this.screen = new Array();
     }
 
     onLine(line) {
-      this.cycle++;
       let [cmd, arg] = line.split(' ');
       this.collectSignal();
+      this.drawScreen();
+      this.cycle++;
       if (cmd == 'addx') {
-        this.cycle++;
         this.collectSignal();
+        this.drawScreen();
         this.signal += parseInt(arg);
+        this.cycle++;
       }
     }
 
     collectSignal() {
-      if (this.interestingCycles.has(this.cycle)) {
-        this.accumulatedStrength += this.cycle * this.signal;
+      if (this.interestingCycles.has(this.cycle + 1)) {
+        this.accumulatedStrength += (this.cycle + 1) * this.signal;
+      }
+    }
+
+    drawScreen() {
+      const hpos = this.cycle % 40;
+      if ((this.signal - 1 <= hpos) && (hpos <= this.signal + 1)) {
+        // sprite overlaps the current pixel
+        this.screen.push('#');
+      } else {
+        this.screen.push('.');
       }
     }
 
     onClose() {
       console.log('Program is', this.cycle, 'cycles.');
       console.log('Accumulated signal strength:', this.accumulatedStrength);
+      for (let row = 0; row < 6; row++) {
+        console.log(this.screen.slice(40 * row, 40 * (row + 1)).join(''));
+      }
     }
 }
 
