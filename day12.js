@@ -3,6 +3,8 @@ class Cell {
         this.name = name;
         this.setHeight(name);
         this.distance = undefined;
+        if (name === 'S') this.setHeight('a');
+        if (name === 'E') this.setHeight('z');
     }
 
     setHeight(height) {
@@ -30,75 +32,74 @@ class Cell {
     }
 }
 
-class Context {
+class HeightMap {
     constructor() {
-        this.heightMap = new Array();
+        this.grid = new Array();
         this.width = 0;
         this.height = 0;
-        this.startPoint = null;
-        this.endPoint = null;
+        this.startIndex = null;
+        this.endIndex = null;
     }
 
-    onLine(line) {
-        let row = Array.from(line);
+    addRow(row) {
         this.width = row.length;
-        this.heightMap.push(...row.map(h => new Cell(h)));
-        if (this.startPoint == null) {
+        this.grid.push(...row.map(h => new Cell(h)))
+        if (this.startIndex == null) {
             let idx = row.findIndex(c => c === 'S');
             if (idx !== -1) {
-                this.startPoint = this.toIndex([idx, this.height]);
-                this.heightMap[this.startPoint].setHeight('a');
+                this.startIndex = this.toIndex([idx, this.height]);
             }
         }
-        if (this.endPoint == null) {
+        if (this.endIndex == null) {
             let idx = row.findIndex(c => c === 'E');
             if (idx !== -1) {
-                this.endPoint = this.toIndex([idx, this.height]);
-                this.heightMap[this.endPoint].setHeight('z');
+                this.endIndex = this.toIndex([idx, this.height]);
             }
         }
         this.height++;
     }
 
-    onClose() {
-        console.log('Start point:', this.toCoordinates(this.startPoint));
-        const stepsTaken = this.growPoint(this.startPoint);
-        console.log('Distance to endpoint:', this.heightMap[this.endPoint].distance);
-        console.log('Steps taken:', stepsTaken);
-    }   
-
     showMap() {
         for (let row = 0; row < this.height; row++) {
-            console.log(this.heightMap
+            console.log(this.grid
                 .slice(row * this.width, (row + 1) * this.width)
                 .map(c => c.toString())
                 .join(', '));
         }
     }
 
-    growPoint(start) {
-        let initials = [start];
+    findStartPoints() {
+        return this.grid
+            .map((c, i) => ({idx: i, cell: c}))
+            .filter(o => o.cell.name === 'b')
+            .map(o => this.neighborsOnMap(o.idx).filter(idx => this.grid[idx].height === 0))
+            .flat(); 
+    }
+
+    growFrom(startIndexes) {
+        let candidates = startIndexes.slice();
         let distance = 0;
-        while (initials.length !== 0) {
-            distance++;
-            let candidates = [];
-            initials.forEach(p => {
-                candidates.push(...this.candidatesFromPoint(p));
-            });
+
+        while (candidates.length !== 0) {
             let toClaim = Array.from(new Set(candidates));
-            if (toClaim.some(i => this.heightMap[i].name === 'E')) {
-                console.log('Found endpoint at distance', distance);
-            }
-            toClaim.forEach(i => this.heightMap[i].claim(distance));
-            initials = toClaim;
+            toClaim.forEach(i => this.grid[i].claim(distance));
+            candidates = [];
+            toClaim.forEach(i => {
+                candidates.push(...this.candidatesFromCell(i));
+            });
+            distance++;
         }
         return distance - 1;
     }
 
-    candidatesFromPoint(index) {
+    get endCell() {
+        return this.grid[this.endIndex];
+    }
+
+    candidatesFromCell(index) {
         return this.neighborsOnMap(index)
-            .filter(i => !this.heightMap[i].isClaimed())
-            .filter(i => this.heightMap[index].isWithinReach(this.heightMap[i]));
+            .filter(i => !this.grid[i].isClaimed())
+            .filter(i => this.grid[index].isWithinReach(this.grid[i]));
     }
 
     toCoordinates(index) {
@@ -118,6 +119,24 @@ class Context {
         if (y + 1 < this.height) neighbors.push(index + this.width);
         return neighbors;
     }
+}
+
+class Context {
+    constructor() {
+        this.heightMap = new HeightMap();
+    }
+
+    onLine(line) {
+        this.heightMap.addRow(Array.from(line));
+    }
+
+    onClose() {
+        let startIndexes = this.heightMap.findStartPoints();
+        console.log(startIndexes.length, startIndexes);
+        const stepsTaken = this.heightMap.growFrom(startIndexes);
+        console.log('Distance to endpoint:', this.heightMap.endCell.distance);
+        console.log('Steps taken:', stepsTaken);
+    }   
 }
 
 const processModule = require('node:process');
