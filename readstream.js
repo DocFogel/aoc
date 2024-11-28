@@ -14,6 +14,4 @@ function readContent(readstream, context) {
     });
 }
 
-
-
 module.exports.readContent = readContent;
