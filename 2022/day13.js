@@ -61,7 +61,7 @@ const processModule = require('node:process');
 const strm = require('node:readline').createInterface({
     input: processModule.stdin
 });
-const readLines = require('./readstream').readContent;
+const readLines = require('../readstream').readContent;
 
 readLines(strm,
     new Context());

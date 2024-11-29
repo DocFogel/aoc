@@ -103,7 +103,7 @@ const processModule = require('node:process');
 const strm = require('node:readline').createInterface({
     input: require('node:process').stdin
 });
-const readLines = require('./readstream').readContent;
+const readLines = require('../readstream').readContent;
 
 readLines(strm, 
     processModule.argv.length === 2? new Context(2) : new Context(10));
