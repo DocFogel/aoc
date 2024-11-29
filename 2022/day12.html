@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    canvas {
+      border: 1px solid blueviolet;
+    }
+
+    #puzzle-input {
+      display: none;
+      font-family: monospace;
+    }
+
+    p {
+      margin: 0px;
+    }
+  </style>
+</head>
+
+<body>
+  <button id="part1" type="button">Part 1 distance</button>
+  <button id="part2" type="button">Part 2 distance</button>
+  <br>
+  <canvas id="canvas" height="200" width="800"></canvas>
+  <div><h2  id="result"></h2></div>
+  <div id="puzzle-input"></div>
+  <div>This file must be served over http(s) in order for the page to load the height map data. You can easily do that with the command <code>npx serve</code> from the folder of this file. It will typically serve the page as <a href="http://localhost:3000/day12">http://localhost:3000/day12.html</a>.</div>
+  <script src="./heightmap.js"></script>
+  <script>
+    (() => {
+      let httpRequest;
+      let heightMap;
+      const size = 4;
+      const colorMap = new Map();
+
+      // ['aqua', 'black', 'olive', 'green', 'maroon', 'orange', 'yellow', 'lime', 'teal', 'blue', 'navy', 'purple', 'fuchsia', '#909090',
+      //  '#989898', '#A0A0A0', '#A8A8A8', '#B0B0B0', '#C2B9B9', '#CEBCBC', '#E1C0C0', '#F3BBBB', '#FFB0B0', '#FFA0A0', '#FF8080', '#FF6060', '#FF4040']
+      // ['#303030', '#383838', '#404040', '#484848', '#505050', '#585858', '#606060', '#686868', '#707070', '#787878', '#808080', '#888888', '#909090',
+      //  '#989898', '#A0A0A0', '#A8A8A8', '#B0B0B0', '#C2B9B9', '#CEBCBC', '#E1C0C0', '#F3BBBB', '#FFB0B0', '#FFA0A0', '#FF8080', '#FF6060', '#FF4040']
+      ['aqua', 'black', 'olive', '#484848', '#505050', '#585858', '#606060', '#686868', '#707070', '#787878', '#808080', '#888888', '#909090',
+        '#989898', '#A0A0A0', '#A8A8A8', '#B0B0B0', '#C2B9B9', '#CEBCBC', '#E1C0C0', '#F3BBBB', '#FFB0B0', '#FFA0A0', '#FF8080', '#FF6060', '#FF4040']
+        .forEach((c, i) => colorMap.set(i, c));
+      colorMap.set('S', 'fuchsia');
+      colorMap.set('E', 'yellow');
+
+      document
+        .getElementById('part1')
+        .addEventListener("click", () => walkDistance(1));
+      document
+        .getElementById('part2')
+        .addEventListener("click", () => walkDistance(2));
+
+      window.addEventListener('load', goGet);
+
+      function goGet() {
+        httpRequest = new XMLHttpRequest();
+        httpRequest.onreadystatechange = alertContents;
+        httpRequest.open('GET', 'day12.input.txt');
+        httpRequest.send();
+      }
+
+      function walkDistance(part) {
+        let start = [];
+        if (part == 1) start.push(heightMap.startIndex);
+        if (part == 2) start.push(...partTwoStartPoints());
+        timedStep(start, 0);
+      }
+
+      function timedStep(origins, distance) {
+        let candidates = heightMap.claimAndGrowFromCells(origins, distance++);
+        highlightPoints(candidates);
+        if (candidates.some(i => i === heightMap.endIndex)) {
+          document.getElementById('result').innerText = 'Distance is ' + distance;
+        } else
+          setTimeout(timedStep, 50, candidates, distance);
+      }
+
+      function partTwoStartPoints() {
+        return heightMap.grid
+          .map((c, i) => ({ idx: i, cell: c }))
+          .filter(o => o.cell.name === 'b')
+          .map(o => heightMap.neighborsOnMap(o.idx).filter(idx => heightMap.grid[idx].height === 0))
+          .flat();
+      }
+
+      function alertContents() {
+        try {
+          if (httpRequest.readyState === XMLHttpRequest.DONE) {
+            if (httpRequest.status === 200) {
+              buildHeightMap(httpRequest.responseText);
+            } else {
+              alert('There was a problem with the request.');
+            }
+          }
+        } catch (e) {
+          alert(`Caught Exception: ${e.message}`);
+        }
+      }
+
+      function buildHeightMap(mapData) {
+        const rows = mapData.split('\n').filter(r => r.trim().length > 0);
+        heightMap = new HeightMap();
+
+        const div = document.getElementById('puzzle-input');
+        div.innerHTML = rows.map(r => `<p>${r}</p>`).join('');
+        rows.forEach(r => { heightMap.addRow(r.split('')); })
+        drawHeightMap();
+        console.log(`heatMap: w: ${heightMap.width} h: ${heightMap.height} sz: ${heightMap.grid.length}`);
+      }
+
+      function drawHeightMap() {
+        let canvas = document.getElementById('canvas');
+        let ctx = canvas.getContext('2d');
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.moveTo(0,0);
+        ctx.save();
+        ctx.translate(5, 5);
+        ctx.lineWidth = size;
+
+        for (const row of heightMap.rows()) {
+          drawRow(ctx, row);
+          ctx.translate(0, size);
+        }
+        ctx.restore();
+      }
+
+      function drawRow(ctx, row) {
+        let currentPen = row[0].height;
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.strokeStyle = colorMap.get(currentPen);
+        for (let i = 0; i < row.length; i++) {
+          if (currentPen !== row[i].height) {
+            ctx.lineTo(i * size, 0);
+            ctx.stroke();
+            currentPen = row[i].height;
+            ctx.beginPath();
+            ctx.moveTo(i * size, 0);
+            ctx.strokeStyle = colorMap.get(currentPen);
+          }
+        }
+        ctx.lineTo(row.length * size, 0);
+        ctx.stroke();
+      }
+
+      function highlightPoints(indexes) {
+        let canvas = document.getElementById('canvas');
+        let ctx = canvas.getContext('2d');
+        ctx.strokeStyle = 'rgba(0, 255, 255, 0.5)';
+        ctx.lineWidth = size;
+        ctx.moveTo(0,0);
+        ctx.save();
+        ctx.translate(5, 5);
+        ctx.beginPath();
+        indexes.forEach(i => {
+          let [x, y] = heightMap.toCoordinates(i);
+          ctx.moveTo(x * size, y * size);
+          ctx.lineTo((x + 1) * size, y * size);
+        })
+        ctx.stroke();
+        ctx.restore();
+      }
+    })();
+  </script>
+</body>
+
+</html>
