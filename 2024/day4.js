@@ -27,50 +27,36 @@ class Context {
     }
 
     onClose() {
+        // Part 1
         // find possible starting points and check what directions do NOT step out of bounds
         // this will be a list of starting points and directions
-        let candidates = this.puzzle.map((line, row) => this.findXs(line).map(x => this.getCompassDirections(x, row).map(dir => ({x: x, y: row, direction: dir})))).flat(2);
-        console.log(candidates.length, candidates);
+        let candidates = this.puzzle.map((line, row) => this.findXs(line).map(x => this.allDirections().map(dir => ({x: x, y: row, direction: dir})))).flat(2);
 
-        const matches = candidates.filter(this.isValid, this);
-        console.log(`Total matches: ${matches.length}`);
+        const matches = candidates.filter(this.isXMAS, this);
+        console.log(`Total part 1 matches: ${matches.length}`);
     }
 
     findXs(line) {
         return Array.from(line.matchAll(/X/g)).map(m => m.index);
     }
 
-    getCompassDirections(x, y) {
-        let directions = [];
-        if (x >= 3) {
-            // x+1 >= 4
-            directions.push('w');
-        }
-        if (x <= this.puzzleWidth - 4) {
-            // x+1 <= width - 3
-            directions.push('e');
-        }
-        if (y >= 3) {
-            directions.push('n');
-        }
-        if (y <= this.puzzle.length - 4) {
-            directions.push('s');
-        }
-        if (directions.includes('w')) {
-            if (directions.includes('n')) directions.push('nw');
-            if (directions.includes('s')) directions.push('sw');
-        }
-        if (directions.includes('e')) {
-            if (directions.includes('n')) directions.push('ne');
-            if (directions.includes('s')) directions.push('se');
-        }
-
-        return directions;
+    allDirections() {
+        return Array.from(this.stepMap.keys());        
     }
 
-    isValid(origin) {
+    isXMAS(origin) {
         let step = this.stepMap.get(origin.direction);
-        return ['M', 'A', 'S'].reduce((isMatch, expected, i) => isMatch && (this.puzzle[origin.y + (i+1)*step.y][origin.x + (i+1)*step.x] === expected), true);
+        return ['M', 'A', 'S'].reduce((isMatch, expected, i) => {
+            const x = origin.x + (i+1)*step.x;
+            const y = origin.y + (i+1)*step.y;
+            if (x < 0 || x >= this.puzzleWidth) return false;
+            return isMatch 
+                && x >= 0
+                && x < this.puzzleWidth
+                && y >= 0
+                && y < this.puzzle.length
+                && (this.puzzle[y][x] === expected)
+        }, true);
     }
 }
 
