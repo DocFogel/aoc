@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Day 6</title>
+        <style>
+            canvas {
+                display: none;
+                border: 1px solid blueviolet;
+            }
+
+            #puzzle-input {
+                display: block;
+                font-family: monospace;
+                font-size: xx-small;
+            }
+
+            p {
+                margin: 0px;
+            }
+
+            .start {
+                background-color: mediumaquamarine;
+            }
+
+            .walked {
+                background-color: lightcoral;
+            }
+        </style>
+    </head>
+
+    <body>
+        <button id="part1" type="button">Walk the guard</button>
+        <input id="source" type="checkbox">Use test data</input>
+        <br>
+        <canvas id="canvas" height="200" width="800"></canvas>
+        <div>
+            <h2>Result</h2>
+            <p id="result"></p>
+        </div>
+        <div id="puzzle-input"></div>
+        <div>This file must be served over http(s) in order for the page to load properly. You can easily do that with the command <code>npx serve</code> from the folder of this file. It will typically serve the page as <a href="http://localhost:3000/day6">http://localhost:3000/day6.html</a>.</div>
+        <script type="module">
+            import { Context } from './day6.mjs';
+            var context;
+            const puzzleSrc = document.getElementById('source')
+
+            function newContext() {
+                let ctx = new Context();
+                ctx.on("walk", point => {
+                    if (point.dx !== 0) {
+                        for (let i = 1; i <= Math.abs(point.dx); i++) {
+                            document.getElementById(`${point.position.x + i * Math.sign(point.dx)}-${point.position.y}`).setAttribute("class", "walked");
+                        }
+                    } else if (point.dy !== 0) {
+                        for (let i = 1; i <= Math.abs(point.dy); i++) {
+                            document.getElementById(`${point.position.x}-${point.position.y + i * Math.sign(point.dy)}`).setAttribute("class", "walked");
+                        }
+                    }
+                });
+                ctx.on("ready", result => {
+                    console.log("result:", result);
+                    document.getElementById(`${result.start.x}-${result.start.y}`).setAttribute("class", "start");
+                });
+                ctx.on("secured", point => {
+                    console.log("secured:", point);
+                });
+                return ctx;
+            }
+
+            function walkTheGuard() {
+                context.on("secured", guard => {
+                    document.getElementById('result').textContent = `Guard walked ${document.getElementsByClassName('walked').length} squares`;
+                });
+                context.walkTheGuard();
+            }
+
+            puzzleSrc.addEventListener('change', function () {
+                const fileName = this.checked ? 'day6.test.txt' : 'day6.input.txt';
+                fetch(fileName)
+                    .then(response => response.text())
+                    .then(data => {
+                        const puzzle_input = document.getElementById('puzzle-input');
+                        context = newContext();
+                        puzzle_input.innerHTML = '';
+                        document.getElementById('result').textContent = '';
+
+                        data.split('\n').forEach((line, y) => {
+                            const input_line = document.createElement('p');
+                            input_line.innerHTML = line.trim().split('').map((c, x) => `<span id="${x}-${y}">${c}</span>`).join('');
+                            puzzle_input.appendChild(input_line);
+
+                            context.onLine(line.trim());
+                        });
+                        context.onClose();
+                    })
+                    .catch(error => console.error('Error fetching the file:', error));
+            });
+
+            document.getElementById('part1').addEventListener('click', walkTheGuard);
+
+            puzzleSrc.checked = true;
+            puzzleSrc.dispatchEvent(new Event('change'));
+        </script>
+    </body>
+</html>
