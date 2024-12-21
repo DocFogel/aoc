@@ -25,6 +25,11 @@
             .walked {
                 background-color: lightcoral;
             }
+
+            .result {
+                font-weight: bold;
+                color: blueviolet;
+            }
         </style>
     </head>
 
@@ -40,38 +45,53 @@
         <div id="puzzle-input"></div>
         <div>This file must be served over http(s) in order for the page to load properly. You can easily do that with the command <code>npx serve</code> from the folder of this file. It will typically serve the page as <a href="http://localhost:3000/day6">http://localhost:3000/day6.html</a>.</div>
         <script type="module">
-            import { Context } from './day6.mjs';
+            import { Context, Guard } from './day6.mjs';
             var context;
+            var guard;
+            var currentStretch;
+            const stretchesToWalk = 400;
+            const animationSpeed = 10;
             const puzzleSrc = document.getElementById('source')
 
-            function newContext() {
-                let ctx = new Context();
-                ctx.on("walk", point => {
-                    if (point.dx !== 0) {
-                        for (let i = 1; i <= Math.abs(point.dx); i++) {
-                            document.getElementById(`${point.position.x + i * Math.sign(point.dx)}-${point.position.y}`).setAttribute("class", "walked");
-                        }
-                    } else if (point.dy !== 0) {
-                        for (let i = 1; i <= Math.abs(point.dy); i++) {
-                            document.getElementById(`${point.position.x}-${point.position.y + i * Math.sign(point.dy)}`).setAttribute("class", "walked");
-                        }
-                    }
-                });
-                ctx.on("ready", result => {
-                    console.log("result:", result);
-                    document.getElementById(`${result.start.x}-${result.start.y}`).setAttribute("class", "start");
-                });
-                ctx.on("secured", point => {
-                    console.log("secured:", point);
-                });
-                return ctx;
+            function walkTheGuard() {
+                guard = new Guard(context);
+                currentStretch = stretchesToWalk;
+                setTimeout(doNextStretch, 0);
             }
 
-            function walkTheGuard() {
-                context.on("secured", guard => {
-                    document.getElementById('result').textContent = `Guard walked ${document.getElementsByClassName('walked').length} squares`;
-                });
-                context.walkTheGuard();
+            function doNextStretch() {
+                let stretch = guard.nextStretch();
+                if (stretch === null) {
+                    return;
+                }
+
+                let unitStep;
+                switch (stretch.direction) {
+                    case 0:
+                        unitStep = { x: -1, y: 0 };
+                        break;
+                    case 1:
+                        unitStep = { x: 0, y: -1 };
+                        break;
+                    case 2:
+                        unitStep = { x: 1, y: 0 };
+                        break;
+                    case 3:
+                        unitStep = { x: 0, y: 1 };
+                        break;
+                };
+                for (let i = stretch.length; i > 0; i--) {
+                    const [x, y] = [stretch.start.x + i * unitStep.x, stretch.start.y + i * unitStep.y];
+                    const cell = document.getElementById(`${x}-${y}`);
+                    cell.classList.add('walked');
+                }
+                if (currentStretch-- > 0 && !guard.exited) {
+                    setTimeout(doNextStretch, animationSpeed);
+                } else {
+                    let visited = guard.walkedStretches.reduce((t, s) => t + s.length, 1) - guard.totalCrosses;
+                    let result = `Guard visited <span class="result">${visited}</span> cells after walking ${guard.walkedStretches.length} stretches.`;
+                    document.getElementById('result').innerHTML = result;
+                }
             }
 
             puzzleSrc.addEventListener('change', function () {
@@ -80,7 +100,7 @@
                     .then(response => response.text())
                     .then(data => {
                         const puzzle_input = document.getElementById('puzzle-input');
-                        context = newContext();
+                        context = new Context();
                         puzzle_input.innerHTML = '';
                         document.getElementById('result').textContent = '';
 
@@ -91,7 +111,6 @@
 
                             context.onLine(line.trim());
                         });
-                        context.onClose();
                     })
                     .catch(error => console.error('Error fetching the file:', error));
             });
