@@ -26,8 +26,20 @@
                 background-color: aquamarine;
             }
 
+            .backtrack {
+                border: red 1px solid;
+            }
+
             .vulnerable {
-                border: 2px solid red;
+                background-color: lightsalmon;
+            }
+
+            .leadout {
+                background-color: palevioletred;
+            }
+
+            .loop {
+                background-color: magenta;
             }
 
             .result {
@@ -42,33 +54,67 @@
         <input id="source" type="checkbox">Use test data</input>
         <br>
         <canvas id="canvas" height="200" width="800"></canvas>
-        <div>
-            <h2>Result</h2>
-            <p id="result"></p>
+        <div style="display:flex">
+            <div id="puzzle-input"></div>
+            <div>
+                <p>After walking the guard you can click any of the <span class="vulnerable">vulnerable</span> cell to see the <span class="loop">loop</span>
+                    and the <span class="leadout"> to it</span> from the cell.</p>
+                <h2>Result</h2>
+                <p id="result"></p>
+            </div>
         </div>
-        <div id="puzzle-input"></div>
         <div>This file must be served over http(s) in order for the page to load properly. You can easily do that with the command <code>npx serve</code> from the folder of this file. It will typically serve the page as <a href="http://localhost:3000/day6">http://localhost:3000/day6.html</a>.</div>
         <script type="module">
             import { Context, Guard } from './day6.mjs';
             var context;
-            var guard;
+            var guard = null;
             var currentStretch;
-            const stretchesToWalk = 400;
+            const maxWalk = 800;
+            var stretchIter;
             const animationSpeed = 10;
-            const puzzleSrc = document.getElementById('source')
+            const puzzleSrc = document.getElementById('source');
 
             function walkTheGuard() {
                 guard = new Guard(context);
-                currentStretch = stretchesToWalk;
+                guard.walkFrom(context.start);
+                clearBoard(true);
+                currentStretch = maxWalk;
+                stretchIter = guard.walkedStretches[Symbol.iterator]();
                 setTimeout(doNextStretch, 0);
+                let visited = guard.walkedStretches.reduce((t, s) => t + s.length, 1) - guard.totalCrosses;
+                let result = `Guard visited <span class="result">${visited}</span> cells after walking ${guard.walkedStretches.length} stretches.`;
+                guard.vulnerableCells.forEach(c => {
+                    const cell = document.getElementById(`${c.obstacle.x}-${c.obstacle.y}`);
+                    cell.classList.add('vulnerable');
+                });
+                result += `<p>Detected ${guard.vulnerableCells.length} vulnerable points.</p>`;
+                result += `<p>Found ${guard.walkedStretches.filter(s => s.length === 0).length} 180-turns.</p>`;
+                document.getElementById('result').innerHTML = result;
+            }
+
+            function clearBoard(all) {
+                document.querySelectorAll('span').forEach(c => {
+                    c.classList.remove('start', 'leadout', 'loop');
+                    if (all) {
+                        c.classList.remove('backtrack', 'walked', 'vulnerable');
+                    }
+                });
             }
 
             function doNextStretch() {
-                let stretch = guard.nextStretch();
-                if (stretch === null) {
+                let next = stretchIter.next();
+                if (next.done) {
                     return;
                 }
 
+                const stretch = next.value;
+                showStretch(stretch, 'walked');
+                if (currentStretch-- > 0) {
+                    setTimeout(doNextStretch, animationSpeed);
+                }
+            }
+
+            function showStretch(stretch, className) {
                 let unitStep;
                 switch (stretch.direction) {
                     case 0:
@@ -87,19 +133,12 @@
                 for (let i = stretch.length; i > 0; i--) {
                     const [x, y] = [stretch.start.x + i * unitStep.x, stretch.start.y + i * unitStep.y];
                     const cell = document.getElementById(`${x}-${y}`);
-                    cell.classList.add('walked');
-                }
-                if (currentStretch-- > 0 && !guard.exited) {
-                    setTimeout(doNextStretch, animationSpeed);
-                } else {
-                    let visited = guard.walkedStretches.reduce((t, s) => t + s.length, 1) - guard.totalCrosses;
-                    let result = `Guard visited <span class="result">${visited}</span> cells after walking ${guard.walkedStretches.length} stretches.`;
-                    document.getElementById('result').innerHTML = result;
+                    cell.classList.add(className);
                 }
             }
 
             puzzleSrc.addEventListener('change', function () {
-                const fileName = this.checked ? 'day6.test.txt' : 'day6.input.txt';
+                const fileName = this.checked ? 'day6.test2.txt' : 'day6.input.txt';
                 fetch(fileName)
                     .then(response => response.text())
                     .then(data => {
@@ -117,6 +156,28 @@
                         });
                     })
                     .catch(error => console.error('Error fetching the file:', error));
+            });
+
+            document.getElementById('puzzle-input').addEventListener('click', function (e) {
+                const cell = e.target;
+                if (guard === null) {
+                    console.log("Guard not initialized yet.");
+                    return;
+                }
+                if (cell.tagName === 'SPAN') {
+                    const [x, y] = cell.id.split('-');
+                    clearBoard(false);
+                    // context.start = { x: parseInt(x), y: parseInt(y) };
+                    // document.querySelectorAll('span').forEach(c => c.classList.remove('walked'));
+                    const vuln = guard.vulnerableCells.find(c => c.obstacle.x === parseInt(x) && c.obstacle.y === parseInt(y));
+                    if (vuln) {
+                        console.log("Vulnerable cell clicked", vuln);
+                        vuln.leadOut.forEach(s => showStretch(s, 'leadout'));
+                        vuln.loop.forEach(s => showStretch(s, 'loop'));
+                    } else {
+                        console.log("Cell clicked", x, y);
+                    }
+                } 
             });
 
             document.getElementById('part1').addEventListener('click', walkTheGuard);
