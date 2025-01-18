@@ -4,7 +4,8 @@ import { readContent } from "../readstream.js";
 
 class Context {
     constructor() {
-        this.sum = 0;
+        this.p1Sum = 0;
+        this.p2Sum = 0;
     }
 
     onLine(line) {
@@ -12,23 +13,24 @@ class Context {
         const parts = line.split(':');
         const result = parseInt(parts[0].trim());
         const operands = parts[1].trim().split(' ').map(s => parseInt(s));
-        this.sum += this.onInstruction(result, operands) ? result : 0;
+        this.p1Sum += this.onInstruction(2, result, operands) ? result : 0;
+        this.p2Sum += this.onInstruction(3, result, operands) ? result : 0;
     }
 
-    onInstruction(expected, operands) {
-        const operatorCount = 2**(operands.length - 1);
+    onInstruction(opSet, expected, operands) {
+        const operatorCount = opSet**(operands.length - 1);
         for (let ops = 0; ops < operatorCount; ops++) {
-            if (expected === this.calculate(operands, ops, expected)) {
-                return true;
-            }
-        }
-    }
-
-    calculate(operands, opsInt, upperLimit = 1000) {
-        const operators = opsInt.toString(2)
+            const operators = ops.toString(opSet)
                                 .padStart(operands.length - 1, '0')
                                 .slice(-operands.length + 1);
 
+            if (expected === this.calculate(operands, operators, expected)) {
+                return true;
+            }    
+        }    
+    }    
+
+    calculate(operands, operators, upperLimit = 1000) {
         try {
             return operands.reduce((acc, val, idx) => {
                 if (acc > upperLimit) {
@@ -39,8 +41,12 @@ class Context {
                 } else {
                     if (operators[idx - 1] === '0') {
                         return acc + val;
-                    } else {
+                    } else if (operators[idx - 1] === '1') {
                         return acc * val;
+                    } else if (operators[idx - 1] === '2') {
+                        return parseInt(acc.toString() + val.toString());
+                    } else {
+                        throw new Error('Invalid operator');
                     }
                 }
             });
@@ -50,7 +56,8 @@ class Context {
     }
 
     onClose() {
-        console.log('Sum:', this.sum);
+        console.log('Part 1 sum:', this.p1Sum);
+        console.log('Part 2 sum:', this.p2Sum);
     }
 }
 
