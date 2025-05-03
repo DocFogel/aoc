@@ -1,9 +1,13 @@
 class Operation {
-    inversionMap = new Map([["+", "-"], ["-", "+"], ["*", "/"], ["/", "*"]]);
+    inversionMap = new Map([
+        ["+", "-"], ["-", "+"], 
+        ["*", "/"], ["/", "*"], 
+        ["=?", "="], ["=", "=?"]
+    ]);
 
     constructor(op) {
-        if (!["+", "-", "*", "/"].includes(op)) 
-            throw Error(`Unexpected operator ${operator}`);
+        if (!["+", "-", "*", "/", "=?", "="].includes(op)) 
+            throw Error(`Unexpected operator ${op}`);
         this.operator = op;
     }
 
@@ -17,97 +21,189 @@ class Operation {
                 return operand1 * operand2;
             case "/":
                 return operand1 / operand2;
-            };
+            case "=?":
+                return Math.sign(operand1 - operand2);
+            case "=":
+                return operand2 + Math.sign(operand1);
+        };
     }
 
     get inverse() { 
-        return this.inversionMap[this.operator];
+        return new Operation(this.inversionMap.get(this.operator));
+    }
+
+    toString() { 
+        return this.operator;
     }
 }
 
 class Monkey {
+    constructor(name) {
+        this.name = name;
+    }
+}
+
+class Howler extends Monkey {
     #value;
 
     constructor(name, value) {
-        this.name = name;
+        super(name);
         this.#value = parseInt(value);
     }
 
-    getValue(monkeys) {
+    getValue() {
         return this.#value;
     }
 
-    dependencyOn(name) { return null; }
-
-    ToString() {
+    toString() {
         return `Monkey ${this.name} yelling ${this.#value}`;
     }
 }
 
-class Brain {
+class Brain extends Monkey {
     #operator;
 
-    constructor(name, operator, opname1, opname2) {
+    constructor(name, operator, m1, m2) {
+        super(name);
+        this.#operator = operator;
+
+        this.monkey1 = m1
+        this.monkey2 = m2;
+    }
+
+    getValue() {
+        const m1 = this.monkey1.getValue();
+        const m2 = this.monkey2.getValue();
+        return this.#operator.calculate(
+            m1, m2
+        ); 
+    }
+
+    toString() {
+        return `Brain ${this.name} depending on ${this.monkey1} ${this.#operator} ${this.monkey2}`;
+    }
+}
+
+class Edge {
+    constructor(name) {
         this.name = name;
-        this.#operator = new Operation(operator);
-
-        this.operand1 = opname1
-        this.operand2 = opname2;
+        this.red = null;
+        this.blue = null;
     }
 
-    getValue(monkeys) {
-        return this.#operator.calculate(this.operand1, this.operand2);
+    addEndpoint(endpoint) {
+        if (this.red == null) {
+            this.red = endpoint;
+            return;
+        }
+        if (this.blue == null) {
+            this.blue = endpoint;
+            return;
+        }
+        // all endpoints are already taken... throw an error
+        throw Error(`Attempt to assign too many endpoints to ${this.name}`);
     }
 
-    dependencyOn(operand) {
-        let other;
-        try {
-            other = this.other(operand);
-        } catch (Error) {
+    asTree(fromNode = undefined) {
+        if (fromNode === undefined) {
+            // starting from a dangling edge, where there is no fromNode. Take the first available.
+            if (this.red != null) { 
+                return this.red.asTree(this);
+            }
+            if (this.blue != null) {
+                return this.blue.asTree(this);
+            }
+            console.error("no endpoints available");
             return null;
         }
-
-        switch (this.#operator.operator) {
-            case "+": 
-                return new Brain(operand, this.#operator.inverse, this.name, other);
-
-            case "-":
-                if (operand === this.operand1)
-                    return new Brain(operand, this.#operator.inverse, this.name, other);
-                else
-                    return new Brain(operand, this.#operator.operator, other, this.name);
-
-            case "*":
-                return new Brain(operand, this.#operator.inverse, this.name, other);
-
-            case "/":
-                if (operand === this.operand1)
-                    return new Brain(operand, this.#operator.inverse, this.name, other);
-                else
-                    return new Brain(operand, this.#operator.operator, other, this.name);
-
-            default:
-                throw Error(`Unknown operator ${this.#operator}`);
+        if (this.red?.name === fromNode.name) {
+            return this.blue?.asTree(this);
         }
-        
-    }
-
-    other(operand) {
-        if (operand !== this.operand1 && operand !== this.operand2) {
-            throw Error(`This brain is not wired to the ${operand} monkey`);
+        if (this.blue?.name === fromNode.name) {
+            return this.red?.asTree(this);
         }
-
-        return operand === this.operand1 ? this.operand2 : this.operand1;
+        // this edge is not connected to the node
+        console.log("not connected to that node or to any node");
+        return null;
     }
 
-    ToString() {
-        return `Brain ${this.name} depending on ${this.operand1} ${this.#operator} ${this.operand2}`;
+    toString = () => `${this.name} with red: (${this.red?.name}) and blue: (${this.blue?.name})`;
+}
+
+class Node {
+    #name
+    constructor(edges, relation) {
+        this.#name = Node.ids.next().value;
+        this.gamma = edges[2];
+        this.operation = new Operation(relation);
+        if (relation === "-" || relation === "/" || relation === "=") {
+             this.alpha = edges[1];
+             this.beta = edges[0];
+             this.operation = this.operation.inverse;
+        } else {
+            this.alpha = edges[0];
+            this.beta = edges[1];
+        }
     }
+
+    toString() {
+        return `${this.#name} connecting ${this.alpha.name} as ${this.beta.name} ${this.operation} ${this.gamma.name}`;
+    }
+
+    asTree(fromEdge) { 
+        // this is a bit of a hack, but it works for now.
+        if (this.alpha.name === fromEdge.name) {
+            return new Brain(this.alpha.name, this.operation, this.beta.asTree(this), this.gamma.asTree(this));
+        }
+        if (this.beta.name === fromEdge.name) {
+            return new Brain(this.beta.name, this.operation.inverse, this.alpha.asTree(this), this.gamma.asTree(this));
+        }
+        if (this.gamma.name === fromEdge.name) {
+            return new Brain(this.gamma.name, this.operation.inverse, this.alpha.asTree(this), this.beta.asTree(this));
+        }
+        // this node is not connected to the edge
+        return null;
+    }
+
+    get name() {
+        return this.#name;
+    }
+
+    static ids = ids("node");
+}
+
+class Leaf {
+    #name;
+    constructor(edge, value) {
+        this.#name = Leaf.ids.next().value;
+        this.edge = edge;
+        this.value = parseInt(value);
+    }
+
+    toString() {
+        return `${this.#name} provides ${this.edge} the value ${this.value}`;
+    }
+
+    asTree(fromEdge) {
+        // be promisquous and return the Howler from any edge...
+        return new Howler(fromEdge.name, this.value);
+    }
+
+    get name() {
+        return this.#name;
+    }
+
+    static ids = ids("leaf");
 }
 
 class Context {
     constructor() {
-        this.monkeys = [];
+        this.edges1 = new Map();
+        this.edges2 = new Map();
+        // prime part 2's edges with the root edge and it's leaf
+        let root = new Edge("root");
+        root.addEndpoint(new Leaf(root, 0));
+        this.edges2.set("root", root);
     }
 
     onLine(line) {
@@ -115,113 +211,71 @@ class Context {
         let name = split[0];
         name = name.substring(0, name.length - 1);
 
-        if (split.length === 2) {
-            // this is a monkey
-            this.monkeys.push(new Monkey(name, split[1]));
+        this.handleRule(name, split.slice(1), this.edges1);
+
+        // we have some special rules for the second part
+        if (name === "root") {
+            // give root the proper job 
+            split[2] = "=?";
+            this.handleRule(name, split.slice(1), this.edges2);
+        } else if (name !== "humn") {
+            this.handleRule(name, split.slice(1), this.edges2);
+        } // leave humn without a job. This is what we will calculate.
+    }
+
+    handleRule(name, rule, edges) {
+        let edge = this.getOrCreateEdge(edges, name);
+        if (rule.length > 1) {
+            this.addNode([edge, this.getOrCreateEdge(edges, rule[0]), this.getOrCreateEdge(edges, rule[2])], rule[1]);
         } else {
-            // this is a brain
-            this.monkeys.push(new Brain(name, split[2], split[1], split[3]));
+            edge.addEndpoint(new Leaf(edge, rule[0]));
         }
     }
 
+    addNode(edges, relation) {
+        let node = new Node(edges, relation);
+        edges.forEach(e => e.addEndpoint(node));
+    }
+
+    getOrCreateEdge(edges, name) {
+        let edge = edges.get(name);
+        if (edge == undefined) {
+            edge = new Edge(name);
+            edges.set(name, edge);
+        }
+        return edge;
+    }
+
     onClose() {
-        if (this.monkeys.size === 0) return;
+        if (this.edges1.size === 0) return;
 
         this.part1();
         this.part2();
     }
 
     part1() {
-        tree = new Map(this.monkeys.map(m => [m.name, m]));
-        console.log("root monkey yells", tree.get("root").getValue(tree));
+        let root = this.edges1.get("root");
+        console.log("root monkey yells:", root.asTree().getValue());
     }
 
     part2() {
+        console.log("I yell:", this.edges2.get("humn").asTree().getValue());
     }
 }
 
-function reverseDependency(brains, name) {
-    let reversedBrain = null;
-    for (brain of brains.values()) {
-        reversedBrain = brain.dependencyOn(name);
-        if (reversedBrain != null) {
-            console.log(`reversed ${name} into ${reversedBrain.ToString()}`);
-            return [...reverseDependency(brains, reversedBrain.name), reversedBrain]
-        }
+function* ids(prefix) {
+    let i = 1;
+    while (true) {
+        yield `${prefix}${i++}`;
     }
-    console.log(`reversing stopped with ${name}`);
-    return [];
-}
-
-function monkeyTest() {
-    let monkeys = new Map();
-    monkeys.set("m1", new Monkey("m1", 10));
-    monkeys.set("m2", new Monkey("m2", 2));
-    monkeys.set("add", new Brain("add", "+", "m1", "m2"));
-    monkeys.set("sub", new Brain("sub", "-", "m2", "m1"));
-    monkeys.set("mult", new Brain("mult", "*", "m1", "m2"));
-    monkeys.set("div", new Brain("div", "/", "m1", "m2"));
-    try {
-        monkeys.set("fail", new Brain("fail", "=", "m1", "m2"));
-    } catch (e) {
-        console.log("Could not create the fail monkey, which is good!", e.message);
-    }
-
-    if (monkeys.get("add").getValue(monkeys) != 12)  throw new Error("add monkey in error");
-    if (monkeys.get("sub").getValue(monkeys) != -8)  throw new Error("sub monkey in error");
-    if (monkeys.get("mult").getValue(monkeys) != 20)  throw new Error("mult monkey in error");
-    if (monkeys.get("div").getValue(monkeys) != 5)  throw new Error("div monkey in error");
-}
-
-function dependencyTest() {
-    let addBrain = new Brain("A", "+", "B", "C");
-    let multBrain = new Brain("D", "*", "E", "F");
-    let divBrain = multBrain.dependencyOn("E");
-
-    console.log("addBrain:", addBrain.ToString());
-    console.log("addBrain as seen from B:", addBrain.dependencyOn("B").ToString());
-    console.log("addBrain as seen from C:", addBrain.dependencyOn("C").ToString());
-    console.log("addBrain as seen from D:", addBrain.dependencyOn("D")?.ToString());
-    
-    console.log("multBrain:", multBrain.ToString());
-    console.log("multBrain as seen from E:", multBrain.dependencyOn("E").ToString());
-    console.log("multBrain as seen from F:", multBrain.dependencyOn("F").ToString());
-
-    console.log("divBrain's three views:\n", divBrain.ToString());
-    console.log(divBrain.dependencyOn("F").ToString());
-    console.log(divBrain.dependencyOn("D").ToString());
-}
-
-function reverseTest() {
-    let ctx = new Context();
-    [ 
-        "a: b + c",
-        "b: 1",
-        "c: d * f",
-        "d: g / e",
-        "f: 2",
-        "g: 3",
-        "e: 4"
-    ].forEach(l => ctx.onLine(l));
-    console.log("initial monkeys:", ctx.monkeys.size);
-    Array.from(ctx.monkeys.values()).forEach(m => console.log(m.ToString()));
-    
-    const onlyBrains = new Map(Array.from(ctx.monkeys.entries()).filter(e => e[1] instanceof Brain));
-    const reversed = reverseDependency(onlyBrains, "e");
-    reversed.values().forEach(b => console.log(b.ToString()));
 }
 
 const processModule = require('node:process');
-const { isInt16Array } = require('node:util/types');
 const strm = require('node:readline').createInterface({
     input: processModule.stdin
 });
 const readLines = require('../readstream').readContent;
-
-//reverseTest();
-monkeyTest(); dependencyTest();
-
-//readLines(strm, new Context());
+readLines(strm, new Context());
 
 // readLines(strm, 
 //     processModule.argv.length === 2? new Context(2) : new Context(10));
