@@ -1,0 +1,25 @@
+digraph  {
+	humn -> ptdq
+
+	ptdq -> dvpt
+	ptdq -> lgvd
+	
+	lgvd -> ljgn
+	lgvd -> cczh
+
+	cczh -> sllz
+	cczh -> pppw
+
+	root [ label="=" ]
+	pppw -> lfqf
+	pppw -> root
+
+	root -> sjmn
+	
+	sjmn -> drzm
+	sjmn -> dbpl
+
+	drzm -> hmdt
+	drzm -> zczc
+
+}

@@ -1,0 +1,2988 @@
+graph "day21.input" {
+	rankdir=LR
+	root [color="red"; style="filled"]
+	humn [color="cyan"; style="filled"]
+
+	djpv -- psrp
+	djpv -- gzbq
+
+	tjrn -- ppwm
+	tjrn -- blmz
+
+	qvgm -- bnfs
+	qvgm -- sjgl
+
+	ptdg -- lfld
+	ptdg -- rrgv
+
+	qszp -- tjmp
+	qszp -- jjcn
+
+	cswp -- jhnc
+	cswp -- qlcr
+
+	jmzc -- wlcd
+	jmzc -- dgbh
+
+	dprz -- lqhl
+	dprz -- sllm
+
+	zsgj -- ntlb
+	zsgj -- bnsf
+
+	grtg -- bzgq
+	grtg -- tdzm
+
+	srmc -- rncb
+	srmc -- dwjz
+
+	flwq -- dcvq
+	flwq -- slhv
+
+	qqgc -- zbmv
+	qqgc -- qmlv
+
+	ccdd -- pbnw
+	ccdd -- gfdj
+
+	pmsd -- vrsr
+	pmsd -- wpbl
+
+	zrhc -- pmrb
+	zrhc -- gqbp
+
+	szrs -- trqm
+	szrs -- jmzc
+
+	ntlb -- nfmh
+	ntlb -- hjtc
+
+	tdmg -- fzrz
+	tdmg -- fhlq
+
+	csrq -- jznq
+	csrq -- jnwf
+
+	cfgb -- wspr
+	cfgb -- rhnb
+
+	frbn -- tgbr
+	frbn -- sftz
+
+	vlst -- szgh
+	vlst -- rtjq
+
+	rmrt -- dtrm
+	rmrt -- scgl
+
+	qbjp -- bdlj
+	qbjp -- grpm
+
+	zfjv -- gzhr
+	zfjv -- srjf
+
+	gdnj -- dwjd
+	gdnj -- sljm
+
+	bclc -- jlpt
+	bclc -- mfnl
+
+	dplf -- dcmn
+	dplf -- lmgp
+
+	dgjg -- qlnz
+	dgjg -- lpwp
+
+	bnlg -- zvnn
+	bnlg -- hwts
+
+	gjgw -- ztql
+	gjgw -- cshq
+
+	jjnf -- crbn
+	jjnf -- rbhb
+
+	cbdg -- dwwc
+	cbdg -- ctpw
+
+	rbhb -- jfhs
+	rbhb -- nsnl
+
+	hhzw -- dvlq
+	hhzw -- gsnf
+
+	znvg -- zgpm
+	znvg -- ndgw
+
+	rftv -- ssqw
+	rftv -- rzjs
+
+	tdbh -- ndnf
+	tdbh -- bzrg
+
+	lgwq -- mpzw
+	lgwq -- tfwd
+
+	rjtv -- hwqq
+	rjtv -- dlfs
+
+	cnlf -- wgmb
+	cnlf -- flrd
+
+	hrhd -- jvzp
+	hrhd -- dqmq
+
+	szgh -- pmvh
+	szgh -- thcq
+
+	gnfq -- hrpg
+	gnfq -- pjzt
+
+	bjqc -- zjcp
+	bjqc -- lhjb
+
+	dhnn -- sssp
+	dhnn -- qjpt
+
+	vbsl -- ngqr
+	vbsl -- mcsq
+
+	dqhl -- jjsn
+	dqhl -- rphc
+
+	vpgt -- ggpl
+	vpgt -- zdnh
+
+	zpvl -- lffr
+	zpvl -- bqnm
+
+	hjrj -- drjs
+	hjrj -- nttb
+
+	vmrf -- vjwv
+	vmrf -- mzsc
+
+	gzwj -- bpwf
+	gzwj -- jnpt
+
+	fjbv -- bbcs
+	fjbv -- tdmg
+
+	jdnp -- rwsm
+	jdnp -- fdhq
+
+	njqh -- pndp
+	njqh -- ssdr
+
+	lmrq -- fgbh
+	lmrq -- tpqw
+
+	nqcc -- pvtf
+	nqcc -- chdr
+
+	wscd -- gdnj
+	wscd -- tdgz
+
+	jcwf -- wmbs
+	jcwf -- qlcw
+
+	nsff -- lcgl
+	nsff -- tcpm
+
+	clnc -- hwcv
+	clnc -- dscs
+
+	rwlc -- lclh
+	rwlc -- vvst
+
+	dljg -- qzvq
+	dljg -- mzgj
+
+	hgqr -- dbfz
+	hgqr -- pjnb
+
+	zzjw -- bbsr
+	zzjw -- gdjn
+
+	wvvg -- fvtg
+	wvvg -- hntg
+
+	fqnn -- hqsj
+	fqnn -- qpfp
+
+	cdzg -- lmwr
+	cdzg -- rdtr
+
+	jtfd -- tsft
+	jtfd -- dljr
+
+	gsdc -- nlmr
+	gsdc -- mzdf
+
+	ltgp -- wtzb
+	ltgp -- fdqs
+
+	cdtv -- mgbp
+	cdtv -- grtg
+
+	vmps -- ltbg
+	vmps -- jnjj
+
+	mtgr -- pzjw
+	mtgr -- msmn
+
+	lzfw -- grzt
+	lzfw -- srtw
+
+	hvsl -- rtpn
+	hvsl -- mhpn
+
+	tdlt -- nzhj
+	tdlt -- fshr
+
+	pqnz -- vlvd
+	pqnz -- dljg
+
+	ftvz -- hwfs
+	ftvz -- gllq
+
+	mjpg -- wdnz
+	mjpg -- rzwq
+
+	gfcw -- lrql
+	gfcw -- fflz
+
+	bzwd -- hwzg
+	bzwd -- stst
+
+	ssqw -- ffdd
+	ssqw -- mwvr
+
+	tztw -- trpf
+	tztw -- hzwg
+
+	ctsr -- prbb
+	ctsr -- mngt
+
+	pwvl -- dpjl
+	pwvl -- mgbn
+
+	fdvb -- dpdv
+	fdvb -- nghc
+
+	hhrd -- tngn
+	hhrd -- sjnr
+
+	vtjm -- zrhc
+	vtjm -- tfvs
+
+	sjnr -- pbpb
+	sjnr -- nbdj
+
+	dssv -- crph
+	dssv -- vdrd
+
+	dfnz -- rzcf
+	dfnz -- fvwp
+
+	gbvv -- tvzs
+	gbvv -- ddfc
+
+	brpd -- bmdp
+	brpd -- ljvw
+
+	drbl -- bfpf
+	drbl -- lbhv
+
+	stms -- ltzb
+	stms -- zqjp
+
+	blsv -- jvns
+	blsv -- dbhm
+
+	jwcd -- zfwg
+	jwcd -- hcdz
+
+	nnmp -- hpnt
+	nnmp -- bqfl
+
+	mwvr -- zdwt
+	mwvr -- wwmt
+
+	qhmr -- pltn
+	qhmr -- zlhp
+
+	mhwh -- frdq
+	mhwh -- jzwz
+
+	wgwz -- zcwj
+	wgwz -- jcwf
+
+	mpzw -- hjrm
+	mpzw -- bgjp
+
+	frpj -- pwbc
+	frpj -- mrvw
+
+	wrnc -- mnmj
+	wrnc -- sfjw
+
+	rwsm -- nvvt
+	rwsm -- clnc
+
+	zgwq -- wlwh
+	zgwq -- vrfv
+
+	bjls -- czjc
+	bjls -- bfww
+
+	smpj -- bqvm
+	smpj -- sjvg
+
+	tbsn -- dpzq
+	tbsn -- hvjg
+
+	rrmp -- nrbf
+	rrmp -- btrt
+
+	mghg -- fjhq
+	mghg -- dzgl
+
+	sjgl -- snvv
+	sjgl -- fljr
+
+	znst -- rngh
+	znst -- lfgp
+
+	jqnn -- cbmq
+	jqnn -- ltlz
+
+	mmzp -- lwtp
+	mmzp -- rfvl
+
+	crzt -- jwnm
+	crzt -- tjvp
+
+	jbrt -- cffg
+	jbrt -- hhnl
+
+	bsbl -- sthn
+	bsbl -- hhdl
+
+	tghn -- wjnr
+	tghn -- vrwc
+
+	pfpb -- wcqt
+	pfpb -- ljrt
+
+	jjzp -- vqqq
+	jjzp -- zgrz
+
+	lbft -- cnvf
+	lbft -- nwrq
+
+	httr -- lfch
+	httr -- hbsc
+
+	hqbt -- mjdt
+	hqbt -- qszp
+
+	tgwl -- bvhc
+	tgwl -- swnb
+
+	wrgq -- rwlc
+	wrgq -- ntcw
+
+	qrrl -- tbcz
+	qrrl -- dcls
+
+	bbsr -- dnch
+	bbsr -- cpnn
+
+	wjnr -- zrzr
+	wjnr -- gpjm
+
+	pndp -- zjtg
+	pndp -- wgwz
+
+	wbgz -- znmg
+	wbgz -- fggd
+
+	ppsv -- wgwv
+	ppsv -- vwjn
+
+	hjvb -- ntvz
+	hjvb -- btbn
+
+	bjqp -- nlmp
+	bjqp -- vljm
+
+	pbpb -- pbrz
+	pbpb -- bqrl
+
+	pjzt -- rdtf
+	pjzt -- vbgj
+
+	znws -- npvh
+	znws -- mngs
+
+	pmhz -- qhqf
+	pmhz -- jddv
+
+	zvgn -- mcjc
+	zvgn -- wvww
+
+	zcnh -- hwpt
+	zcnh -- pshj
+
+	nqhb -- vpcs
+	nqhb -- ljrq
+
+	jzhq -- jcdd
+	jzhq -- rtqj
+
+	swlv -- prsh
+	swlv -- drsj
+
+	dwjd -- tfgs
+	dwjd -- nggj
+
+	pfgr -- wtnm
+	pfgr -- fzhd
+
+	vfdv -- dstw
+	vfdv -- rwzz
+
+	flrw -- npzq
+	flrw -- mrpt
+
+	rgcf -- ltft
+	rgcf -- bwql
+
+	tlhz -- szsm
+	tlhz -- zbmd
+
+	wvww -- pvdl
+	wvww -- bzhc
+
+	lbfz -- fhcd
+	lbfz -- fjlq
+
+	dvtm -- gtdv
+	dvtm -- zllh
+
+	svjc -- gfrc
+	svjc -- bqjf
+
+	hdbp -- vwjj
+	hdbp -- zswz
+
+	zrsz -- prpc
+	zrsz -- ddns
+
+	lmfv -- tnmh
+	lmfv -- lfqc
+
+	jqbg -- zbvf
+	jqbg -- rdll
+
+	pbvg -- ngtc
+	pbvg -- zchq
+
+	gzjp -- pdsb
+	gzjp -- zcft
+
+	fqmm -- hbjg
+	fqmm -- tdfs
+
+	wwnj -- fjdw
+	wwnj -- nmcb
+
+	tmjf -- cdtv
+	tmjf -- jwwq
+
+	bpwf -- sdfv
+	bpwf -- lmrd
+
+	ljvd -- pnjw
+	ljvd -- vmnf
+
+	rpsv -- wnrv
+	rpsv -- qvmv
+
+	mcjc -- gcgp
+	mcjc -- mnsw
+
+	mvqn -- rvgj
+	mvqn -- nrwb
+
+	dvvn -- vtql
+	dvvn -- mncb
+
+	fgvl -- njgj
+	fgvl -- sdsh
+
+	dbbf -- mrpp
+	dbbf -- dvvn
+
+	wtct -- hgrp
+	wtct -- rjzq
+
+	fnfl -- zgmz
+	fnfl -- zrzh
+
+	scfw -- spdc
+	scfw -- fhlc
+
+	cjsf -- qnmp
+	cjsf -- swqh
+
+	vfsq -- gglq
+	vfsq -- jfnr
+
+	lsrh -- bjfh
+	lsrh -- dqgv
+
+	dbrz -- jshm
+	dbrz -- vrwn
+
+	mrtt -- jbzz
+	mrtt -- pcrr
+
+	whfs -- bsrr
+	whfs -- tshq
+
+	rfmd -- zjms
+	rfmd -- vwqt
+
+	hrfv -- vwgn
+	hrfv -- cvwr
+
+	bcvg -- llpq
+	bcvg -- rwrn
+
+	blbv -- bzwd
+	blbv -- rjcz
+
+	pqmf -- flrw
+	pqmf -- fbfn
+
+	nlmp -- vppz
+	nlmp -- bcvg
+
+	qsnf -- ggwz
+	qsnf -- qwcn
+
+	twhr -- vrdb
+	twhr -- hjrp
+
+	ngnq -- dqhl
+	ngnq -- cmvw
+
+	crwf -- pqzb
+	crwf -- nmsw
+
+	zgbt -- dtbv
+	zgbt -- ccdd
+
+	qsmr -- dgvl
+	qsmr -- llhr
+
+	wbgw -- jwsh
+	wbgw -- nsrw
+
+	pqjs -- bhnv
+	pqjs -- wznt
+
+	nqzz -- zmbc
+	nqzz -- qmnf
+
+	dpzq -- bffq
+	dpzq -- qsnf
+
+	gbwj -- jjzp
+	gbwj -- svbc
+
+	zmbc -- hnrm
+	zmbc -- lpvn
+
+	zrzh -- wtfj
+	zrzh -- bqdp
+
+	jjcn -- wbzq
+	jjcn -- zdfs
+
+	lpsc -- drbl
+	lpsc -- zltq
+
+	zbfp -- fvtv
+	zbfp -- rjbz
+
+	gchj -- ljdh
+	gchj -- mfgd
+
+	tdlb -- mtvr
+	tdlb -- btdd
+
+	cqvt -- fcgv
+	cqvt -- qzjl
+
+	hbqw -- tpbd
+	hbqw -- cqgt
+
+	fflz -- hnnn
+	fflz -- zwfz
+
+	jndl -- pzhq
+	jndl -- lhbc
+
+	wlcd -- wbgz
+	wlcd -- mrnl
+
+	mrvw -- rdbl
+	mrvw -- bnsg
+
+	bpmd -- bpqh
+	bpmd -- lcfc
+
+	wtrv -- qrrl
+	wtrv -- smgc
+
+	bsvr -- jmpf
+	bsvr -- tqvp
+
+	qtwh -- gzwj
+	qtwh -- ntbb
+
+	bvhc -- bfwg
+	bvhc -- wppd
+
+	spcw -- zfhh
+	spcw -- nrhs
+
+	cfpv -- vqqz
+	cfpv -- mbwn
+
+	zcjw -- fpvs
+	zcjw -- svmv
+
+	qlbm -- hvsl
+	qlbm -- tghn
+
+	zswz -- hpdq
+	zswz -- dfnz
+
+	pcwh -- zrsz
+	pcwh -- nczs
+
+	pmvl -- svpn
+	pmvl -- bvms
+
+	nvgq -- vwsb
+	nvgq -- cbrr
+
+	svqs -- csvj
+	svqs -- vtgw
+
+	vsfm -- cdzg
+	vsfm -- spjs
+
+	rhnb -- qpvt
+	rhnb -- qlpt
+
+	dzgl -- crch
+	dzgl -- gsmc
+
+	dqsj -- cqrt
+	dqsj -- mvhq
+
+	jmpf -- vmdv
+	jmpf -- hgcp
+
+	qtmg -- ljbj
+	qtmg -- swcp
+
+	wsbf -- lhsq
+	wsbf -- hgdz
+
+	nczs -- twgp
+	nczs -- dwbt
+
+	thml -- bvwh
+	thml -- msjj
+
+	fgcz -- nwmg
+	fgcz -- gbvv
+
+	jznq -- rntr
+	jznq -- qjlg
+
+	gsmc -- wglg
+	gsmc -- fdfp
+
+	ngtc -- dmbz
+	ngtc -- lqjv
+
+	vgvd -- bfrh
+	vgvd -- sdbz
+
+	qwwt -- vgvd
+	qwwt -- fshq
+
+	ppwv -- tgjq
+	ppwv -- zzgd
+
+	fpvv -- dcgl
+	fpvv -- gfzz
+
+	whsq -- bshm
+	whsq -- mlsd
+
+	rqwc -- vpbs
+	rqwc -- csmh
+
+	fbbp -- vfsq
+	fbbp -- bdjw
+
+	jsnh -- cfwb
+	jsnh -- dpjq
+
+	bnsf -- lrzz
+	bnsf -- nhrf
+
+	tghl -- hdbp
+	tghl -- lfjd
+
+	wzfz -- jsvc
+	wzfz -- rmnc
+
+	tpld -- rdqh
+	tpld -- rdgq
+
+	ntrl -- rrvj
+	ntrl -- vfdv
+
+	cgsn -- tmsg
+	cgsn -- npbs
+
+	rrvj -- shns
+	rrvj -- rlfc
+
+	zcwj -- qmlg
+	zcwj -- hjvb
+
+	wpjs -- wfbf
+	wpjs -- mpzd
+
+	bmdv -- jhtn
+	bmdv -- tzqd
+
+	tmsg -- gzjp
+	tmsg -- mhbr
+
+	rngh -- tfbf
+	rngh -- tdrj
+
+	lchq -- gfcw
+	lchq -- ljlz
+
+	tptr -- mvbq
+	tptr -- cllt
+
+	cmmj -- cswp
+	cmmj -- nflm
+
+	dwpn -- vzzt
+	dwpn -- lmbq
+
+	jpcz -- wqdm
+	jpcz -- hvns
+
+	rmqp -- wwmm
+	rmqp -- llbg
+
+	hlzc -- pqmf
+	hlzc -- gvzs
+
+	ndgw -- zgwq
+	ndgw -- jrmb
+
+	qlzh -- tgdb
+	qlzh -- mhwh
+
+	dmbz -- dsbm
+	dmbz -- grvw
+
+	tcpm -- ghmt
+	tcpm -- mcgw
+
+	mvhq -- fdvb
+	mvhq -- drcj
+
+	djvb -- jtgr
+	djvb -- nqzz
+
+	dppr -- pcnm
+	dppr -- pqfd
+
+	prln -- lzfw
+	prln -- gvpg
+
+	cfgd -- jlzh
+	cfgd -- vtzw
+
+	ggvm -- rsbw
+	ggvm -- fczw
+
+	fbnl -- mwgw
+	fbnl -- cqvt
+
+	czts -- mphf
+	czts -- brpd
+
+	wtfj -- wnrc
+	wtfj -- nvpj
+
+	frgr -- htst
+	frgr -- ntrl
+
+	qqvb -- clwt
+	qqvb -- vdjv
+
+	lzpb -- zpml
+	lzpb -- jvcn
+
+	dwtr -- rqgv
+	dwtr -- wjts
+
+	njgj -- jbhc
+	njgj -- blmn
+
+	vztc -- vfvq
+	vztc -- nqsl
+
+	vqdl -- qsln
+	vqdl -- gcwl
+
+	hwcq -- jbqj
+	hwcq -- pqjs
+
+	mqbh -- lbsw
+	mqbh -- jrnq
+
+	tfbf -- wbpj
+	tfbf -- bszj
+
+	vvnm -- lwmq
+	vvnm -- dfmd
+
+	mjcr -- rdmn
+	mjcr -- tpvq
+
+	qchr -- szrs
+	qchr -- nssz
+
+	lrqq -- vpwv
+	lrqq -- gmls
+
+	tpmc -- pndf
+	tpmc -- dpcs
+
+	fwzn -- jtjp
+	fwzn -- jpcz
+
+	cshq -- svvt
+	cshq -- qqgv
+
+	qflj -- chcq
+	qflj -- dcdc
+
+	tfqc -- dwpn
+	tfqc -- tbbf
+
+	jqtv -- tpdp
+	jqtv -- dpnv
+
+	ggwz -- jtcc
+	ggwz -- lnhj
+
+	ftfg -- wgpw
+	ftfg -- dtdr
+
+	vqlq -- fsjp
+	vqlq -- tfjv
+
+	lbvt -- pdsp
+	lbvt -- tptr
+
+	gzbq -- bgrj
+	gzbq -- gcbf
+
+	gdrt -- nmch
+	gdrt -- dfwq
+
+	cdjz -- ttpn
+	cdjz -- pwfz
+
+	bsrr -- ffjs
+	bsrr -- llhf
+
+	tlbj -- dclg
+	tlbj -- ndsq
+
+	pzmt -- pzql
+	pzmt -- szvn
+
+	bdqr -- lngh
+	bdqr -- wtft
+
+	wqbn -- mwnr
+	wqbn -- hrhv
+
+	mhqf -- hlzc
+	mhqf -- ntch
+
+	qsnd -- thbn
+	qsnd -- svrr
+
+	pjjr -- mghg
+	pjjr -- nlfl
+
+	nnqd -- fqcd
+	nnqd -- bdnj
+
+	hwvn -- cdjz
+	hwvn -- jncq
+
+	rzgg -- pjfr
+	rzgg -- jjpw
+
+	shwf -- mpwt
+	shwf -- rqrr
+
+	svlj -- tgfp
+	svlj -- rtsr
+
+	bqfg -- wsbf
+	bqfg -- vjmr
+
+	lpvn -- bdzh
+	lpvn -- hzzs
+
+	nlhz -- zfjv
+	nlhz -- gwds
+
+	hvfl -- pcvj
+	hvfl -- nwcb
+
+	rdzc -- ngbd
+	rdzc -- pvlg
+
+	nghc -- bsss
+	nghc -- cvqt
+
+	hnqd -- qlmj
+	hnqd -- dzrz
+
+	wrvs -- tgwl
+	wrvs -- vpgt
+
+	wcqt -- gdzw
+	wcqt -- qvfs
+
+	rntj -- jdnp
+	rntj -- bsbt
+
+	mvsn -- szjl
+	mvsn -- swwv
+
+	ntph -- nlhz
+	ntph -- nspp
+
+	fbhr -- pfjq
+	fbhr -- thml
+
+	rzcf -- sfpb
+	rzcf -- mhqp
+
+	ldrq -- djqq
+	ldrq -- qhmr
+
+	drpl -- jjnf
+	drpl -- bgmp
+
+	hpdq -- pqnz
+	hpdq -- bqrz
+
+	wjmr -- mqnz
+	wjmr -- jfjz
+
+	bwpq -- hjsf
+	bwpq -- rwbm
+
+	sjsf -- shwf
+	sjsf -- svqs
+
+	hddd -- glrl
+	hddd -- vfhd
+
+	ppmz -- jhbm
+	ppmz -- zlng
+
+	fnnd -- gscv
+	fnnd -- zsws
+
+	dbhp -- vzsw
+	dbhp -- wzcw
+
+	zszw -- szwp
+	zszw -- fqvp
+
+	trbf -- nvvv
+	trbf -- tmqm
+
+	wfml -- lrtd
+	wfml -- wlfc
+
+	rdmn -- bsrh
+	rdmn -- qrwr
+
+	dddc -- cfzl
+	dddc -- nvct
+
+	smbs -- fnzc
+	smbs -- tgvz
+
+	rtqj -- qlzh
+	rtqj -- swlv
+
+	rsbw -- mgcb
+	rsbw -- lhzt
+
+	crvc -- bgzg
+	crvc -- dvtw
+
+	htst -- mnfl
+	htst -- brfz
+
+	mrpp -- fmsc
+	mrpp -- lmst
+
+	qlmj -- lmrv
+	qlmj -- frpw
+
+	pcvj -- bsvr
+	pcvj -- rpsv
+
+	zwls -- lnpt
+	zwls -- qnfp
+
+	gbvs -- mbpf
+	gbvs -- tnlc
+
+	bqjf -- hjrj
+	bqjf -- mtfh
+
+	dcsf -- qqgc
+	dcsf -- zmnw
+
+	hvjg -- chcz
+	hvjg -- smbs
+
+	svlm -- jpvb
+	svlm -- rdww
+
+	mwvm -- wvvg
+	mwvm -- msvb
+
+	zmnw -- qmpd
+	zmnw -- jtjt
+
+	jqzg -- mmdw
+	jqzg -- pjww
+
+	fjmj -- qfzv
+	fjmj -- lzcg
+
+	rrgv -- dhbs
+	rrgv -- tbtv
+
+	chdr -- lhgh
+	chdr -- sdsv
+
+	sdmn -- wctm
+	sdmn -- lqnc
+
+	qgvd -- sqvh
+	qgvd -- bjtj
+
+	blrz -- ggng
+	blrz -- svjc
+
+	fpbj -- zcjw
+	fpbj -- wmmv
+
+	gzmm -- ctcl
+	gzmm -- znhz
+
+	dwdg -- qchr
+	dwdg -- mrwv
+
+	ggpl -- scct
+	ggpl -- zzfw
+
+	vjcn -- hlrd
+	vjcn -- gnvf
+
+	fzrb -- nqdq
+	fzrb -- pqsf
+
+	pnzp -- mnhj
+	pnzp -- cmzn
+
+	sdfv -- btmz
+	sdfv -- qqqw
+
+	vwjj -- vqlq
+	vwjj -- mpnd
+
+	lrql -- llbb
+	lrql -- zpsn
+
+	rhbj -- jtld
+	rhbj -- rhdz
+
+	fffw -- dftn
+	fffw -- mlbp
+
+	wwfw -- fclv
+	wwfw -- rhbj
+
+	gzft -- cznm
+	gzft -- vbbs
+
+	lnvp -- fqnn
+	lnvp -- hwvn
+
+	hnnn -- pvqs
+	hnnn -- tgmq
+
+	jfrr -- gprc
+	jfrr -- cjtl
+
+	gcsd -- zmhr
+	gcsd -- srbv
+
+	plsf -- plfb
+	plsf -- psdn
+
+	bzwb -- dnpv
+	bzwb -- hwlc
+
+	zjrf -- zjmq
+	zjrf -- twfp
+
+	vbpf -- qmwm
+	vbpf -- gvrd
+
+	ghgv -- njcs
+	ghgv -- dvvf
+
+	bbcs -- cfdp
+	bbcs -- vztl
+
+	ctpw -- qlbm
+	ctpw -- vqqv
+
+	mpzf -- mdnh
+	mpzf -- qfhb
+
+	cjmm -- gcpl
+	cjmm -- pdfd
+
+	qlfq -- mqst
+	qlfq -- qdft
+
+	wfbh -- brrg
+	wfbh -- ppmr
+
+	jcdd -- pdpj
+	jcdd -- dplf
+
+	tmts -- tpdr
+	tmts -- pwcs
+
+	sftz -- sdmf
+	sftz -- rmqp
+
+	lblt -- pfgr
+	lblt -- zqlp
+
+	whhc -- qvgm
+	whhc -- tvfc
+
+	lqdf -- vstn
+	lqdf -- zjls
+
+	vrpg -- bdmw
+	vrpg -- fnnd
+
+	vqqz -- svvn
+	vqqz -- ghjc
+
+	fvtv -- dppr
+	fvtv -- bjls
+
+	dhcj -- rbth
+	dhcj -- gdrt
+
+	rrsf -- nfpj
+	rrsf -- splj
+
+	pdfd -- lvjw
+	pdfd -- srvs
+
+	jgzv -- gncr
+	jgzv -- lmfv
+
+	fqds -- hgnw
+	fqds -- wzvv
+
+	zbmd -- hwhh
+	zbmd -- jttn
+
+	pdgc -- bwpq
+	pdgc -- snlw
+
+	zchq -- rfmd
+	zchq -- mlwm
+
+	wnbr -- gscd
+	wnbr -- tffg
+
+	lcwh -- jmpp
+	lcwh -- vzsm
+
+	nlqm -- nlqn
+	nlqm -- jhqm
+
+	mbvz -- tjwc
+	mbvz -- drmt
+
+	nlmr -- rbnt
+	nlmr -- dddc
+
+	qqct -- cfgd
+	qqct -- qmvc
+
+	rtsr -- lbvt
+	rtsr -- tdhf
+
+	fnzc -- tjhn
+	fnzc -- swzr
+
+	bsbt -- rnrr
+	bsbt -- lwhv
+
+	nrwb -- pnzh
+	nrwb -- srnc
+
+	jfjz -- vftz
+	jfjz -- dnvf
+
+	qsfp -- zzbq
+	qsfp -- fwpr
+
+	nssm -- hvfl
+	nssm -- mjcr
+
+	zbmv -- gdmq
+	zbmv -- fvhh
+
+	bdnj -- gbvs
+	bdnj -- wcfh
+
+	vmnf -- jszf
+	vmnf -- pfpb
+
+	dpnm -- zwls
+	dpnm -- mjtw
+
+	rbpb -- srcj
+	rbpb -- gmnj
+
+	flzj -- fjrf
+	flzj -- nrwz
+
+	cmjn -- qjlc
+	cmjn -- dghs
+
+	hzfv -- zbfp
+	hzfv -- tmjf
+
+	cmtb -- lndz
+	cmtb -- bbbq
+
+	gdmq -- rrsf
+	gdmq -- zcnh
+
+	lnft -- mmhl
+	lnft -- hbqw
+
+	bstj -- pqwc
+	bstj -- hcfj
+
+	fsjp -- ctsr
+	fsjp -- dqww
+
+	fhcd -- mnjf
+	fhcd -- mpzf
+
+	zjpc -- fmgd
+	zjpc -- gtgq
+
+	npbs -- dvjf
+	npbs -- lfhw
+
+	crpv -- vlpl
+	crpv -- hrrf
+
+	tpvq -- jvdm
+	tpvq -- bwhf
+
+	lfzv -- mbgv
+	lfzv -- vztc
+
+	jsjm -- ddcb
+	jsjm -- vsml
+
+	fqjv -- ngfq
+	fqjv -- pnrv
+
+	pphj -- wnsb
+	pphj -- nwzq
+
+	cllr -- vlst
+	cllr -- qnlv
+
+	dhfs -- wqdn
+	dhfs -- lblt
+
+	fsgl -- dvvp
+	fsgl -- dcjl
+
+	jgjr -- gfbr
+	jgjr -- wtct
+
+	vfhd -- whsq
+	vfhd -- bbpm
+
+	ndtn -- gchd
+	ndtn -- chnc
+
+	nfmh -- rvwc
+	nfmh -- dzqq
+
+	wdnz -- jzfv
+	wdnz -- qdvg
+
+	fbfn -- zgvl
+	fbfn -- bgcj
+
+	vljm -- crpp
+	vljm -- crzt
+
+	pwcs -- zsgj
+	pwcs -- mfnv
+
+	cqgt -- qwwt
+	cqgt -- hwvs
+
+	ffdd -- trbf
+	ffdd -- mbbb
+
+	ngfq -- httr
+	ngfq -- pddt
+
+	nrvp -- pdbv
+	nrvp -- bfgq
+
+	sllm -- zjrf
+	sllm -- vsbh
+
+	vzsw -- prgh
+	vzsw -- cpdz
+
+	jwnm -- fwfp
+	jwnm -- gqpt
+
+	ngqr -- lnzw
+	ngqr -- pvsg
+
+	grnj -- hhzw
+	grnj -- lddc
+
+	tshq -- fjmj
+	tshq -- sjsf
+
+	pwhs -- wplt
+	pwhs -- jpbs
+
+	rdll -- mjmt
+	rdll -- lnvp
+
+	qvmv -- hqnz
+	qvmv -- sfdq
+
+	fqcd -- ddjm
+	fqcd -- zqtn
+
+	dgvl -- nlqm
+	dgvl -- ztph
+
+	hhdl -- wnbr
+	hhdl -- mqdb
+
+	zlcj -- wqlc
+	zlcj -- hlbl
+
+	rtpn -- dprz
+	rtpn -- rcph
+
+	lbjr -- whfs
+	lbjr -- mjcf
+
+	vrdb -- dnpb
+	vrdb -- ncmt
+
+	csth -- lrwl
+	csth -- rdvl
+
+	bcfh -- srlq
+	bcfh -- qrts
+
+	wcfh -- nbsd
+	wcfh -- zltl
+
+	ljhq -- fczh
+	ljhq -- srhd
+
+	nbll -- vlwj
+	nbll -- qqjw
+
+	rwbm -- tqnv
+	rwbm -- lvnb
+
+	bqbt -- gpjr
+	bqbt -- qrdp
+
+	qqdc -- mhtg
+	qqdc -- bmpj
+
+	bsrg -- ftwz
+	bsrg -- nrvp
+
+	lnvj -- zgbv
+	lnvj -- gnmq
+
+	gbrc -- nbcr
+	gbrc -- zltv
+
+	dstw -- mrms
+	dstw -- dvtm
+
+	mhcp -- ccsj
+	mhcp -- nwwc
+
+	wdwp -- cnvh
+	wdwp -- sgvs
+
+	mnfl -- cqgp
+	mnfl -- humn
+
+	lddc -- ccdm
+	lddc -- hrsp
+
+	plfb -- tdct
+	plfb -- schv
+
+	swbb -- vddz
+	swbb -- gvwg
+
+	pvsg -- wrvs
+	pvsg -- fzrb
+
+	qlzg -- mcgb
+	qlzg -- jpqz
+
+	fprq -- lbfz
+	fprq -- bpmd
+
+	vsbh -- swrd
+	vsbh -- nwql
+
+	hzgs -- qqvb
+	hzgs -- vhsp
+
+	mnrj -- bjmb
+	mnrj -- pmjq
+
+	qqgv -- vbjd
+	qqgv -- fvvd
+
+	nbdj -- lvfc
+	nbdj -- jsnh
+
+	qdhv -- rccg
+	qdhv -- gtcn
+
+	dzpm -- qnpw
+	dzpm -- fsdq
+
+	tjmp -- rtcw
+	tjmp -- hjws
+
+	sgvs -- pcwh
+	sgvs -- qlzg
+
+	nwpr -- fstl
+	nwpr -- jbrt
+
+	vspg -- rnjq
+	vspg -- lvgb
+
+	btrt -- lzbq
+	btrt -- bbwm
+
+	jhdj -- gnfq
+	jhdj -- wdwp
+
+	bdlj -- bmsj
+	bdlj -- tqrw
+
+	tftm -- pttq
+	tftm -- bshc
+
+	lnpt -- bsrg
+	lnpt -- qpqq
+
+	zllh -- zqdf
+	zllh -- czww
+
+	hwpt -- bnrn
+	hwpt -- stms
+
+	mwgj -- blbv
+	mwgj -- wdsf
+
+	pdnh -- snwb
+	pdnh -- mzhl
+
+	bnjj -- rmrt
+	bnjj -- rpfh
+
+	qtrr -- jczh
+	qtrr -- mhqf
+
+	qhqf -- frbn
+	qhqf -- vngj
+
+	dcls -- tpvw
+	dcls -- fjqv
+
+	fnft -- mfcr
+	fnft -- fbnl
+
+	pgrf -- ltgp
+	pgrf -- csjw
+
+	qllh -- vfzh
+	qllh -- ttsj
+
+	tmwv -- mvvd
+	tmwv -- bvrn
+
+	cqgp -- djpv
+	cqgp -- dwdg
+
+	rdtf -- ggzz
+	rdtf -- jvzm
+
+	jlpt -- csml
+	jlpt -- wqlr
+
+	vhsp -- dnvv
+	vhsp -- hjbq
+
+	tnlc -- gqlh
+	tnlc -- qzhp
+
+	pvlg -- bqns
+	pvlg -- rbst
+
+	lrzz -- nbzw
+	lrzz -- nfds
+
+	qrqp -- wczq
+	qrqp -- gfdp
+
+	mmhl -- vpnp
+	mmhl -- slfl
+
+	pbjq -- blmq
+	pbjq -- gdwn
+
+	rgpq -- gqsf
+	rgpq -- ldrq
+
+	shns -- nzpf
+	shns -- lljc
+
+	szsm -- nwvq
+	szsm -- mhfq
+
+	pclq -- fnws
+	pclq -- cqdb
+
+	sttz -- ftfg
+	sttz -- rnmd
+
+	btbn -- nzwq
+	btbn -- jngv
+
+	tpdr -- swcz
+	tpdr -- pbjq
+
+	dqgv -- nrqb
+	dqgv -- qnwl
+
+	hlpj -- qvmh
+	hlpj -- cdjm
+
+	hbjg -- qtmg
+	hbjg -- wjvw
+
+	qmbh -- cnlf
+	qmbh -- bwvj
+
+	wtnm -- frfd
+	wtnm -- hvgp
+
+	lcfc -- zrfb
+	lcfc -- dpbh
+
+	dcvq -- wbff
+	dcvq -- gnnp
+
+	zqdf -- njzf
+	zqdf -- bswf
+
+	nbsd -- hghp
+	nbsd -- vtqq
+
+	hgcp -- dhsc
+	hgcp -- brgc
+
+	wppd -- flwq
+	wppd -- rrlp
+
+	bwql -- nsjc
+	bwql -- zvbp
+
+	dnpb -- rmdw
+	dnpb -- wczb
+
+	fhlc -- shrb
+	fhlc -- vfcq
+
+	chcq -- zhcm
+	chcq -- cghs
+
+	jvns -- pnzp
+	jvns -- drvc
+
+	rzwq -- pdgc
+	rzwq -- tmld
+
+	hbdd -- rgpq
+	hbdd -- fgvl
+
+	pvbb -- tlbj
+	pvbb -- sppw
+
+	hnfj -- nnhb
+	hnfj -- bgpw
+
+	lszd -- wlls
+	lszd -- qsnd
+
+	nwmg -- scfr
+	nwmg -- vzpp
+
+	fdfp -- gzch
+	fdfp -- znvz
+
+	tdwr -- zsdv
+	tdwr -- rdzc
+
+	brgc -- bqms
+	brgc -- shjm
+
+	mgcb -- vbpf
+	mgcb -- prln
+
+	rnmd -- bhfq
+	rnmd -- lpgr
+
+	dprj -- lbmr
+	dprj -- wdqg
+
+	zwjn -- dfrw
+	zwjn -- sclv
+
+	zjwn -- zzjw
+	zjwn -- qrzh
+
+	dzwf -- lvjh
+	dzwf -- pznw
+
+	grpm -- vgqc
+	grpm -- rfds
+
+	rmfc -- rrhg
+	rmfc -- blsv
+
+	wgqw -- qmbh
+	wgqw -- ndtn
+
+	nmcb -- wgqw
+	nmcb -- tbct
+
+	wmbs -- cvmz
+	wmbs -- cnhg
+
+	wrwd -- jczn
+	wrwd -- rpjr
+
+	dfrw -- gcsd
+	dfrw -- lqdf
+
+	hgrp -- smpj
+	hgrp -- lczg
+
+	fjqc -- zgbt
+	fjqc -- scfw
+
+	svzf -- tdwr
+	svzf -- jgjr
+
+	wqzr -- smfj
+	wqzr -- zdnf
+
+	sjvg -- vddb
+	sjvg -- bbrn
+
+	nfwh -- fctm
+	nfwh -- pzjf
+
+	gnnp -- fbhr
+	gnnp -- nbll
+
+	cvqt -- wqzr
+	cvqt -- jbbn
+
+	bshc -- fhsz
+	bshc -- lsrh
+
+	zsdv -- bhtf
+	zsdv -- bqjz
+
+	smgc -- jddp
+	smgc -- fffw
+
+	jvzp -- fnrr
+	jvzp -- bncf
+
+	vtfl -- qdbv
+	vtfl -- rwsd
+
+	tmqm -- jdcv
+	tmqm -- vmps
+
+	mrvc -- bjqp
+	mrvc -- lszd
+
+	jmcr -- mtgr
+	jmcr -- znvg
+
+	zrst -- lmwb
+	zrst -- vgrr
+
+	wlwh -- ndmd
+	wlwh -- qprf
+
+	tgfp -- vhpc
+	tgfp -- zvrs
+
+	ngbd -- jndl
+	ngbd -- lfzv
+
+	bqvq -- lvzz
+	bqvq -- wspp
+
+	bpvq -- dgjg
+	bpvq -- crwf
+
+	lqjv -- hsvq
+	lqjv -- trhc
+
+	vzht -- qlfq
+	vzht -- mbcm
+
+	ntbb -- gjgw
+	ntbb -- ljhq
+
+	pfpc -- pzmt
+	pfpc -- vzzm
+
+	zhll -- cfgb
+	zhll -- rjtv
+
+	tvzs -- bwwd
+	tvzs -- wzzl
+
+	jshc -- cbdg
+	jshc -- wpjs
+
+	splj -- rdlq
+	splj -- rrrm
+
+	rmnc -- lbth
+	rmnc -- jhtw
+
+	dpnv -- wddc
+	dpnv -- mpvw
+
+	nshz -- rgmz
+	nshz -- hvwm
+
+	srjf -- vbhm
+	srjf -- mqbh
+
+	lvjh -- hjpl
+	lvjh -- wfml
+
+	mqnz -- vrwq
+	mqnz -- zjsp
+
+	hwhh -- rmfc
+	hwhh -- nccz
+
+	mjdt -- wzms
+	mjdt -- pbdn
+
+	mfcr -- qzzb
+	mfcr -- pclq
+
+	svsd -- drlh
+	svsd -- nwpr
+
+	rbth -- mrtt
+	rbth -- nzbf
+
+	srbv -- wrnc
+	srbv -- szrt
+
+	sgqs -- zftz
+	sgqs -- ttbd
+
+	wlls -- jfrr
+	wlls -- gfjd
+
+	qvqm -- srmc
+	qvqm -- vlgq
+
+	vqqv -- jvwf
+	vqqv -- fmhs
+
+	cpdz -- nqhb
+	cpdz -- vfzt
+
+	mjtw -- mqbg
+	mjtw -- hzgw
+
+	zlng -- sslw
+	zlng -- lhhh
+
+	vwsb -- wzfz
+	vwsb -- wzld
+
+	zmwv -- sjst
+	zmwv -- fnft
+
+	slfl -- fjqc
+	slfl -- zvmc
+
+	nvzn -- svsd
+	nvzn -- ghts
+
+	tnbb -- lrjr
+	tnbb -- rgcf
+
+	pjwv -- qgvd
+	pjwv -- ptdg
+
+	szvn -- pqpc
+	szvn -- htgh
+
+	dlfs -- hnqd
+	dlfs -- mhcp
+
+	gdrd -- rnnw
+	gdrd -- ztmr
+
+	hbjb -- jzwj
+	hbjb -- jdsw
+
+	wbzq -- gzlj
+	wbzq -- lhmz
+
+	lmwr -- zwtc
+	lmwr -- cjpv
+
+	hrqt -- mwgj
+	hrqt -- wjgl
+
+	srrz -- jssr
+	srrz -- jdhl
+
+	gqlh -- pmvl
+	gqlh -- rzcl
+
+	ghjc -- fjfm
+	ghjc -- gqrh
+
+	gsnf -- pwsj
+	gsnf -- rdcd
+
+	zzbq -- mbvz
+	zzbq -- jqbg
+
+	fhsz -- gtzd
+	fhsz -- phsg
+
+	zpml -- qqdc
+	zpml -- zdzq
+
+	pfpm -- jtwn
+	pfpm -- mjsp
+
+	bmpj -- fcrf
+	bmpj -- rzgg
+
+	bnfs -- cdtm
+	bnfs -- tdbw
+
+	jlsh -- gzpl
+	jlsh -- hvrb
+
+	mwhb -- srqt
+	mwhb -- smnz
+
+	qgjs -- ntph
+	qgjs -- tbsn
+
+	mvvd -- rrmp
+	mvvd -- swnh
+
+	rfzq -- ndlp
+	rfzq -- vgzs
+
+	fwfp -- dprj
+	fwfp -- qtwh
+
+	zdzq -- wzmf
+	zdzq -- jwzh
+
+	fczh -- jtcz
+	fczh -- hgsw
+
+	rlfc -- vjzl
+	rlfc -- znng
+
+	bfrh -- rqjf
+	bfrh -- pjfw
+
+	hdmp -- dbng
+	hdmp -- tztw
+
+	jhnf -- sqvv
+	jhnf -- vqdm
+
+	wspr -- cvfd
+	wspr -- lpvj
+
+	qmsh -- vhdq
+	qmsh -- pgrf
+
+	qnpw -- qmsh
+	qnpw -- snhb
+
+	wvbs -- mwhb
+	wvbs -- vnlg
+
+	wlmb -- vsfm
+	wlmb -- lbft
+
+	trpf -- qflj
+	trpf -- clvf
+
+	gvwg -- tznv
+	gvwg -- gdrd
+
+	svvt -- nvnq
+	svvt -- ftlw
+
+	bwtj -- ghgv
+	bwtj -- bhgh
+
+	djsn -- twhr
+	djsn -- hwcq
+
+	qdvg -- zbzf
+	qdvg -- wnzj
+
+	hfnh -- wwfw
+	hfnh -- dhcj
+
+	gfrd -- wdtm
+	gfrd -- vgcn
+
+	dgzp -- tnbb
+	dgzp -- vvsn
+
+	hjrm -- bzvl
+	hjrm -- dbrz
+
+	ffvg -- sgqs
+	ffvg -- jcht
+
+	mpvw -- wfbh
+	mpvw -- vbsl
+
+	mvfn -- bdqr
+	mvfn -- dhtw
+
+	rwzz -- crpv
+	rwzz -- jtfd
+
+	qcvf -- dbhp
+	qcvf -- vfcv
+
+	dbhm -- zcdf
+	dbhm -- qrqp
+
+	ncmt -- fwzn
+	ncmt -- ctpc
+
+	vsml -- grnm
+	vsml -- cczq
+
+	cndb -- nmrl
+	cndb -- bght
+
+	lrtd -- zvsm
+	lrtd -- jwcw
+
+	dshd -- ffhz
+	dshd -- gqnp
+
+	fsvg -- dzwf
+	fsvg -- vdnd
+
+	zbvf -- wwpv
+	zbvf -- ltbv
+
+	snjj -- gnws
+	snjj -- fsvg
+
+	vvsn -- phgm
+	vvsn -- crvc
+
+	mtvr -- qdhv
+	mtvr -- mrnq
+
+	rvhr -- jnpq
+	rvhr -- bcjc
+
+	wpdh -- zvgn
+	wpdh -- mvqn
+
+	swrd -- jhpr
+	swrd -- jbfm
+
+	bfgq -- jhbq
+	bfgq -- fdfz
+
+	swcz -- wjmr
+	swcz -- ljdl
+
+	wwpv -- wgrz
+	wwpv -- nqcc
+
+	bqdp -- zjwn
+	bqdp -- jlsh
+
+	mdcw -- hlpj
+	mdcw -- pzgz
+
+	qfhb -- plsf
+	qfhb -- thgj
+
+	vvmd -- shlc
+	vvmd -- lpsc
+
+	bffq -- wlmb
+	bffq -- cjsf
+
+	drmt -- wtrv
+	drmt -- tdlt
+
+	mnjf -- phsf
+	mnjf -- mwvm
+
+	rdtr -- fjbv
+	rdtr -- mvsn
+
+	wgrt -- qcvf
+	wgrt -- gbwj
+
+	qzhp -- qhzw
+	qzhp -- jfwp
+
+	zcdf -- zptq
+	zcdf -- bbwv
+
+	hrpg -- fpbj
+	hrpg -- bcfh
+
+	wjts -- czts
+	wjts -- hpps
+
+	prpc -- wbvz
+	prpc -- nlbz
+
+	nbcr -- bsrl
+	nbcr -- qwch
+
+	dwtj -- hbgv
+	dwtj -- bqfg
+
+	lvnb -- jzfz
+	lvnb -- pfpm
+
+	szjl -- gztd
+	szjl -- jrjq
+
+	rvgj -- tghl
+	rvgj -- zqpl
+
+	cjlm -- nvnm
+	cjlm -- pgwv
+
+	vppz -- gjtp
+	vppz -- tcsm
+
+	hlwv -- jhsc
+	hlwv -- tdps
+
+	bdhb -- bcmc
+	bdhb -- nsff
+
+	vwgn -- znst
+	vwgn -- dnbn
+
+	ltsc -- pmms
+	ltsc -- jqtv
+
+	mnhj -- tnnh
+	mnhj -- pfmd
+
+	ljbj -- lnft
+	ljbj -- fqjv
+
+	bsrl -- bgzr
+	bsrl -- zrst
+
+	vjzl -- fpmv
+	vjzl -- jgfh
+
+	tdfs -- dshd
+	tdfs -- mzlt
+
+	nspp -- cmtb
+	nspp -- fvds
+
+	ztcj -- bghh
+	ztcj -- bwzf
+
+	hbsc -- dqvl
+	hbsc -- vrff
+
+	nwvq -- gzhm
+	nwvq -- lrqq
+
+	hhnl -- wqbn
+	hhnl -- qvqm
+
+	nrdz -- pprb
+	nrdz -- tdbh
+
+	vddz -- tscj
+	vddz -- cpgt
+
+	tmrz -- zbhg
+	tmrz -- dwtr
+
+	qmcj -- hddd
+	qmcj -- smmp
+
+	tcsm -- mpcp
+	tcsm -- vjcn
+
+	gpjr -- hdmp
+	gpjr -- ldjc
+
+	tngn -- wvrv
+	tngn -- bnds
+
+	dbfz -- pfpc
+	dbfz -- qwlf
+
+	nclw -- gjqb
+	nclw -- hrfv
+
+	fgwj -- lzpb
+	fgwj -- qvls
+
+	fptl -- blrz
+	fptl -- wtng
+
+	bcjc -- jqnv
+	bcjc -- wphq
+
+	fvvd -- zsqm
+	fvvd -- jsht
+
+	cnvh -- msnf
+	cnvh -- nrdz
+
+	tjvp -- ggzl
+	tjvp -- qjnj
+
+	vtql -- qllh
+	vtql -- csth
+
+	qrdp -- ccfj
+	qrdp -- drss
+
+	pmms -- cdmb
+	pmms -- ljvd
+
+	zhdm -- bmdv
+	zhdm -- gczb
+
+	mrms -- zchr
+	mrms -- bwtj
+
+	lmgp -- drpl
+	lmgp -- bdhb
+
+	mzlt -- rbnv
+	mzlt -- djvb
+
+	lhsq -- jhnf
+	lhsq -- mldb
+
+	gfbr -- rpgq
+	gfbr -- tdpm
+
+	jfwp -- bpwz
+	jfwp -- fzhl
+
+	bmsj -- hcpr
+	bmsj -- bjvn
+
+	htgh -- zrjg
+	htgh -- vdhw
+
+	swzr -- llwg
+	swzr -- jpjn
+
+	dpdv -- bclc
+	dpdv -- shlp
+
+	blqv -- vvfs
+	blqv -- zcnd
+
+	jhsc -- cpnw
+	jhsc -- blpw
+
+	jpvb -- gzmm
+	jpvb -- nrnp
+
+	vhpc -- bqvb
+	vhpc -- wpdh
+
+	vrff -- stjj
+	vrff -- gfrd
+
+	tgbr -- qnvb
+	tgbr -- blhs
+
+	nzbf -- tmts
+	nzbf -- vlhw
+
+	wgrz -- nwww
+	wgrz -- vvnm
+
+	ppmr -- ppmz
+	ppmr -- mnrj
+
+	drlh -- fqnp
+	drlh -- tmdn
+
+	mrfc -- dlgh
+	mrfc -- shhp
+
+	qrwr -- rcfq
+	qrwr -- tpzd
+
+	btmz -- nldm
+	btmz -- fgcz
+
+	zjms -- ncpr
+	zjms -- wbgw
+
+	hwcv -- bsbl
+	hwcv -- djmz
+
+	sqvh -- stnr
+	sqvh -- vqdl
+
+	mdgj -- fnvm
+	mdgj -- fqds
+
+	vpcs -- jggf
+	vpcs -- pvsb
+
+	nbzw -- wjws
+	nbzw -- nhpl
+
+	trhc -- wgch
+	trhc -- zpvl
+
+	ghzn -- fbwb
+	ghzn -- thvs
+
+	hwlc -- thgr
+	hwlc -- vmrf
+
+	mblt -- bnjj
+	mblt -- spcw
+
+	gqnp -- tzsg
+	gqnp -- dbbf
+
+	blmz -- tpmc
+	blmz -- jdbv
+
+	pphv -- rvgf
+	pphv -- vmdc
+
+	tmld -- jshc
+	tmld -- wnlj
+
+	qrzh -- gllc
+	qrzh -- jmbs
+
+	vrwn -- zbsr
+	vrwn -- ptvm
+
+	fqdh -- vgqf
+	fqdh -- mvfn
+
+	frsp -- fzrs
+	frsp -- dqsj
+
+	pnzh -- rqdn
+	pnzh -- plmb
+
+	cfdp -- tnnn
+	cfdp -- ztcj
+
+	rhwf -- stgm
+	rhwf -- qpqt
+
+	nzhj -- tmrz
+	nzhj -- zrwt
+
+	tdbw -- jlht
+	tdbw -- fjzn
+
+	pnjw -- zhll
+	pnjw -- mjpg
+
+	wczb -- rwgm
+	wczb -- sdmn
+
+	bswf -- cjdf
+	bswf -- tpld
+
+	chcz -- hqbt
+	chcz -- jpcj
+
+	nggj -- wjgh
+	nggj -- whds
+
+	jpvz -- lqmd
+	jpvz -- svzf
+
+	gcdb -- hdvj
+	gcdb -- ppwv
+
+	ghts -- zvgw
+	ghts -- fcll
+
+	wpjz -- rhzm
+	wpjz -- rrhs
+
+	vpnp -- fbbp
+	vpnp -- fqdh
+
+	vfcq -- fzhv
+	vfcq -- zmmm
+
+	cpnw -- gchj
+	cpnw -- ltqq
+
+	tjwc -- dssv
+	tjwc -- flzj
+
+	ttsr -- qsmr
+	ttsr -- ngnq
+
+	ltbv -- hlwv
+	ltbv -- vfnh
+
+	jtcc -- pphj
+	jtcc -- zghg
+
+	dhbs -- gvhs
+	dhbs -- nshz
+
+	jccr -- cllr
+	jccr -- qnsw
+
+	fclv -- dmrl
+	fclv -- hhhw
+
+	pfjq -- nvgq
+	pfjq -- gcdb
+
+	cchz -- nvbj
+	cchz -- ftvz
+
+	dclg -- mmsr
+	dclg -- lzcq
+
+	blhs -- vspg
+	blhs -- mrfc
+
+	ntcw -- zjrq
+	ntcw -- tmtg
+
+	dnpv -- bstj
+	dnpv -- dhfs
+
+	bqvb -- frsp
+	bqvb -- qbjp
+
+	nvvt -- mrvc
+	nvvt -- cpfd
+
+	dnch -- qwnw
+	dnch -- cwqd
+
+	mgbp -- wgfl
+	mgbp -- pfbt
+
+	dwrc -- rftv
+	dwrc -- qmcj
+
+	znvz -- svsj
+	znvz -- wlpq
+
+	vgcn -- ssld
+	vgcn -- nvjb
+
+	rqdn -- gzft
+	rqdn -- dfdq
+
+	qlcr -- fnfl
+	qlcr -- tpjp
+
+	qmlv -- clng
+	qmlv -- dtlz
+
+	dqww -- jrmm
+	dqww -- tdlb
+
+	bbrn -- zpsg
+	bbrn -- zwjn
+
+	sppw -- bztm
+	sppw -- qwqj
+
+	rbnv -- nfwh
+	rbnv -- dhnn
+
+	lzcq -- vtfl
+	lzcq -- vzht
+
+	wplt -- gljs
+	wplt -- zlcj
+
+	gqrh -- nrrh
+	gqrh -- rldc
+
+	wtzb -- jccr
+	wtzb -- crpm
+
+	jssr -- shpn
+	jssr -- hbdd
+
+	qjnj -- vdnr
+	qjnj -- sttz
+
+	tmlt -- rqwc
+	tmlt -- fqfl
+
+	shhp -- wjpw
+	shhp -- smbt
+
+	nlqn -- rfzq
+	nlqn -- wcdl
+
+	fzhl -- jsdv
+	fzhl -- mqgv
+
+	lpwp -- nvzn
+	lpwp -- svlm
+
+	vbgj -- wwdp
+	vbgj -- ffln
+
+	lhzt -- lpbd
+	lhzt -- jzhq
+
+	rncb -- qvvj
+	rncb -- blhp
+
+	bcmc -- nzrb
+	bcmc -- cclc
+
+	wdqj -- bnlg
+	wdqj -- wflb
+
+	lbmr -- mdgj
+	lbmr -- ggvm
+
+	tdgz -- nssm
+	tdgz -- ljcj
+
+	ccsj -- pndm
+	ccsj -- ttsr
+
+	nvvv -- svlj
+	nvvv -- blqv
+
+	zjrq -- rhqj
+	zjrq -- cfpv
+
+	dvlq -- crmq
+	dvlq -- drgt
+
+	hsdb -- mgnj
+	hsdb -- hfnh
+
+	jhbm -- dzpm
+	jhbm -- znws
+
+	bgrj -- qtrr
+	bgrj -- hzgs
+
+	tlph -- zszw
+	tlph -- fptz
+
+	shpn -- rntj
+	shpn -- qmsq
+
+	qqqw -- lhpc
+	qqqw -- vrpg
+
+	brfz -- wfjb
+	brfz -- nlgm
+
+	ltbg -- wrgq
+	ltbg -- mblt
+
+	hwvs -- rbpb
+	hwvs -- bqvq
+
+	wznt -- mmzp
+	wznt -- pwsf
+
+	hpnt -- jqnn
+	hpnt -- rgwd
+
+	nnqh -- dfqr
+	nnqh -- bvrz
+
+	pdsp -- lmrq
+	pdsp -- ddnp
+
+	qzcw -- zlwn
+	qzcw -- jwcd
+
+	rfvl -- fqmm
+	rfvl -- ltsc
+
+	vrwq -- vtjm
+	vrwq -- pbvg
+
+	thvs -- lbjt
+	thvs -- vdrg
+
+	fzhd -- fchz
+	fzhd -- vthl
+
+	hbgv -- wpjz
+	hbgv -- rsfs
+
+	wqbs -- wscd
+	wqbs -- pjjr
+
+	gjtp -- tlph
+	gjtp -- tlfr
+
+	glrl -- snss
+	glrl -- mzzm
+
+	zltv -- scfg
+	zltv -- nnmp
+
+	nmrl -- hnfj
+	nmrl -- lvhh
+
+	jlzh -- dmmh
+	jlzh -- cjmm
+
+	ftwz -- vrmj
+	ftwz -- fprq
+
+	gnvf -- zhdm
+	gnvf -- rhwf
+
+	rrhs -- lnvj
+	rrhs -- wvbs
+
+	hvrb -- whtz
+	hvrb -- hszv
+
+	fshq -- mpbm
+	fshq -- pdnh
+
+	lndz -- gcrl
+	lndz -- pmhz
+
+	hlbl -- jlpc
+	hlbl -- qdvd
+
+	hsbf -- jcqj
+	hsbf -- qfcw
+
+	vdnr -- qgqj
+	vdnr -- qqct
+
+	bmdp -- fgfb
+	bmdp -- snjj
+
+	lfch -- bfpt
+	lfch -- tlhz
+
+	cqrt -- whhc
+	cqrt -- frgr
+
+	wwmt -- cgsn
+	wwmt -- nfdr
+
+	dhsc -- hrqt
+	dhsc -- bzsh
+
+	qwcn -- cqbc
+	qwcn -- grnj
+
+	pqzb -- jsjm
+	pqzb -- dtmd
+
+	bqvm -- bqbt
+	bqvm -- vbzb
+
+	mbpf -- trdr
+	mbpf -- gsdc
+
+	vddb -- mcpl
+	vddb -- vjnv
+
+	bzpt -- csrq
+	bzpt -- mgpd
+
+	pcrr -- qsfp
+	pcrr -- djsn
+
+	fcrf -- rrrr
+	fcrf -- qgjs
+
+	zgmz -- dwrc
+	zgmz -- tmdp
+
+	fstl -- swbb
+	fstl -- zdhr
+
+	ndsq -- gbdt
+	ndsq -- njpm
+
+	bbrf -- jmcr
+	bbrf -- bcrr
+
+	tpvw -- gfhr
+	tpvw -- lpfm
+
+	tdps -- pmsd
+	tdps -- hzfv
+
+	tvzv -- vvmd
+	tvzv -- nnqh
+
+	dcmn -- bpvq
+	dcmn -- cjjn
+
+	mcsq -- zjpc
+	mcsq -- ttcq
+
+	nwww -- ffvg
+	nwww -- bzpt
+
+	fvhh -- jgzv
+	fvhh -- wgrt
+
+	ljrt -- bjqc
+	ljrt -- hhrd
+
+	mwnr -- lpfs
+	mwnr -- rtws
+
+	rtcw -- vlhb
+	rtcw -- hpsb
+
+	frfd -- hnnp
+	frfd -- mdbq
+
+	mqbg -- gbrc
+	mqbg -- wzwh
+
+	drmn -- bwcb
+	drmn -- hwmr
+
+	zrzr -- hcmj
+	zrzr -- ljwc
+
+	dsbm -- tmlt
+	dsbm -- bncz
+
+	ncpr -- whbj
+	ncpr -- frpj
+
+	vzpp -- jjqs
+	vzpp -- tjms
+
+	tpdp -- jpvz
+	tpdp -- dgzp
+
+	wflb -- cchz
+	wflb -- rltn
+
+	lhjb -- lgwq
+	lhjb -- wjfb
+
+	ftcv -- tslf
+	ftcv -- dqvs
+
+	lngh -- lvmr
+	lngh -- qzsf
+
+	lfld -- pphv
+	lfld -- rlpl
+
+	jzfz -- rbpv
+	jzfz -- tfqc
+
+	fwpr -- dpnm
+	fwpr -- jhdj
+
+	fqnp -- rvhr
+	fqnp -- lbjr
+
+	gdwn -- rbwf
+	gdwn -- pjwv
+
+	nldm -- dqnq
+	nldm -- fptl
+
+	hwqq -- tftm
+	hwqq -- htpl
+
+	nlfl -- nclw
+	nlfl -- lcwh
+
+	gwds -- njqh
+	gwds -- ltpg
+
+	cghs -- jrzm
+	cghs -- bpwm
+
+	gcgp -- bmpl
+	gcgp -- lmhp
+
+	wgwp -- pwhs
+	wgwp -- tscl
+
+	srhd -- cjlm
+	srhd -- tnjv
+
+	lmst -- cwbf
+	lmst -- jnwd
+
+	root -- hsdb
+	root -- mwrd
+
+	lsjb -- dsqv
+	lsjb -- wqbs
+
+	hcpr -- mrhw
+	hcpr -- tbnt
+
+	wrzd -- tjrn
+	wrzd -- fpvv
+
+	vftz -- zmwv
+	vftz -- srrz
+
+	gdzw -- hrhd
+	gdzw -- nptd
+
+	qmpd -- cmmj
+	qmpd -- dwtj
+
+	fzrs -- pwvl
+	fzrs -- mmzd
+
+	rqjf -- rncp
+	rqjf -- jzww
+
+	shrb -- bzwb
+	shrb -- csgr
+
+	rdww -- nljp
+	rdww -- drmn
+
+	qpqq -- bbrf
+	qpqq -- ghzn
+
+	fjhq -- tvzv
+	fjhq -- mdcw
+
+	jczn -- wcmp
+	jczn -- gdqh
+
+	ghmt -- cmjn
+	ghmt -- hhfb
+
+	gglq -- jssz
+	gglq -- qzcw
+
+	ffjs -- wdqj
+	ffjs -- dcsf
+
+	bgzg -- pvbb
+	bgzg -- wrrf
+
+	mwrd -- fgwj
+	mwrd -- wrzd
+
+	jhnc -- cbqh
+	jhnc -- nnqd
+
+	vlvd -- fsgl
+	vlvd -- cfgp
+
+	zbhg -- nchp
+	zbhg -- wrwd
+
+	pfmd -- vbwp
+	pfmd -- rfzf
+
+	qzjl -- tggq
+	qzjl -- wnqw
+
+	zjmq -- ghnj
+	zjmq -- hbjb
+
+	csvj -- cmbd
+	csvj -- jnvv
+
+	bmpl -- rvwq
+	bmpl -- lgdm
+
+	bhtf -- tnpz
+	bhtf -- wpvq
+
+	pshj -- jwmh
+	pshj -- bcmq
+
+	dcgl -- wgwp
+	dcgl -- hgqr
+
+	pjfr -- lsjb
+	pjfr -- bqqw
+
+	cjdf -- vtnh
+	cjdf -- rnll
+
+	bzsh -- wwnj
+	bzsh -- jqzg
+
+	ddjm -- lchq
+	ddjm -- cndb
+
+	jpcj -- ppsv
+	jpcj -- tmwv
+
+	lwhv -- hsbf
+	lwhv -- wpfl
+
+	zzfw -- hrbd
+	zzfw -- ftcv
+
+}
