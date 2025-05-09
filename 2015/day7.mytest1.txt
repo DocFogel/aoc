@@ -1,0 +1,9 @@
+123 -> x
+456 -> y
+15 AND y -> d
+x -> e
+d AND e -> f
+d OR e -> g
+NOT e -> h
+f RSHIFT 2 -> i
+h OR i -> j
