@@ -1,4 +1,4 @@
-function readContent(readstream, context) {  
+export function readContent(readstream, context) {  
     readstream.on('data', (chunk) => {
       if (context.onData != undefined)
         context.onData(chunk);
@@ -13,5 +13,3 @@ function readContent(readstream, context) {
             context.onClose();
     });
 }
-
-module.exports.readContent = readContent;
