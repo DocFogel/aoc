@@ -78,10 +78,10 @@ export class Context {
     part2() {
         // Swap back wires that seem to be swapped
         const sus_wire_pairs = [
-            ['z18', 'hmt'],
-            ['z27', 'bfq'],
-            ['z31', 'hkh'],
-            ['bng', 'fjp']
+            ['z18', 'hmt']
+            ,['z27', 'bfq']
+            ,['z31', 'hkh']
+            //,['bng', 'fjp']
         ];
         sus_wire_pairs.forEach(pair => this.swapWires(...pair));
 
