@@ -24,30 +24,25 @@ class Path {
     }
 
     backtrack(flood, startX, startY, direction) {
-        let currentDirection = oppositeDirection[direction];
+        let floodDirection = oppositeDirection[direction];
         let x = startX;
         let y = startY;
         while (true) {
             // go in the opposite direction of the flood
             const key = `${x},${y}`;
             const cell = flood.flooded.get(key);
-            const cost = this.pricelist.getPrice(currentDirection, cell.direction);
             if (cell.direction === 'O') {
                 break;
             }
-            currentDirection = cell.direction;
+
+            const cost = this.pricelist.getPrice(floodDirection, cell.direction);
+            floodDirection = cell.direction;
             this.steps.set(key, {direction: oppositeDirection[cell.direction], cost});
             this.totalCost += cost;
-            x -= directions.find(dir => dir.symbol === currentDirection).dx;
-            y -= directions.find(dir => dir.symbol === currentDirection).dy;
+            const counterMove = directions.find(dir => dir.symbol === floodDirection);
+            x -= counterMove.dx;
+            y -= counterMove.dy;
         }
-    }
-
-    go(key, direction) {
-        const cost = this.pricelist.getPrice(this.currentDirection, direction);
-        this.steps.set(key, {direction: oppositeDirection[direction], cost});
-        this.totalCost += cost;
-        return direction;
     }
 
     toMaze(maze) {
@@ -71,13 +66,23 @@ class ShortestWayPriceList {
     }
 }
 
-class StepTurnPriceList {
+class StepOrTurnPriceList {
     constructor(turnCost = 1000) {
         this.turnCost = turnCost;
     }
 
     getPrice(currDir, nextDir) {
-        return 1 + (currDir === 'O' || currDir === nextDir ? 0 : this.turnCost);
+        return currDir === nextDir ? 1 : this.turnCost;
+    }
+}
+
+class StepAndTurnPriceList {
+    constructor(turnCost = 1000) {
+        this.turnCost = turnCost;
+    }
+
+    getPrice(currDir, nextDir) {
+        return 1 + (currDir === nextDir ? 0 : this.turnCost);
     }
 }
 
@@ -90,21 +95,23 @@ class Flood {
 
     flood(x, y, maxSteps) {
         // Flood the maze from (x,y)
+        // if no coordinates provided, start flooding from the maze end
+        let foundStart = false;
         if (x === undefined || y === undefined) {
             x = this.maze.end.x;
             y = this.maze.end.y;
+            foundStart = false;
         }
-        let heads = [{x, y}];
-        let foundStart = false;
-        this.flooded.set(`${x},${y}`, { direction: 'O', cost: 0 }); // origin
+
+        // heads carry position, current direction and accumulated cost
+        let heads = [{ x, y, direction: 'O', cost: 0 }];
+        this.flooded.set(`${x},${y}`, { direction: 'O' }); // origin
+
         while (!foundStart && heads.length > 0 && (maxSteps === undefined || maxSteps-- > 0)) {
             // work with the cheapest head
             let head = this.popCheapestHead(heads);
             // if the head meets a dead end, it dies.
-            // if the head meets an already flooded tile, tile is marked as intersection and head dies.
             // if the head can expand in multiple directions, it splits and floods each direction.
-
-            const { direction, cost} = this.flooded.get(`${head.x},${head.y}`);
 
             const possible_moves = directions.filter(dir => {
                 // filter candidates that are free to walk and not flooded
@@ -114,12 +121,20 @@ class Flood {
                     && !this.flooded.has(`${candidate.x},${candidate.y}`);
             });
             possible_moves.forEach(move => {
-                const newHead = { x: head.x + move.dx, y: head.y + move.dy };
-                if (this.maze.grid[newHead.y][newHead.x] === 'S') {
-                    foundStart = true;
+                // if the move would change direction, create a turned head
+                const moveCost = this.priceList.getPrice(head.direction, move.symbol);
+                if (move.symbol !== head.direction) {
+                    heads.push({ ...head, direction: move.symbol, cost: head.cost + moveCost });
+                } else {
+                    // advance into the candidate cell
+                    const newHead = { x: head.x + move.dx, y: head.y + move.dy, direction: move.symbol, cost: head.cost + moveCost };
+                    // if we've reached the start cell, register and stop flooding
+                    if (this.maze.grid[newHead.y][newHead.x] === 'S') {
+                        foundStart = true;
+                    }
+                    heads.push(newHead);
+                    this.flooded.set(`${newHead.x},${newHead.y}`, { direction: move.symbol });
                 }
-                this.flooded.set(`${newHead.x},${newHead.y}`, { direction: move.symbol, cost: cost + this.priceList.getPrice(direction, move.symbol) });
-                heads.push(newHead);
             });
             // if any new head is the start cell, stop flooding.
         }
@@ -127,9 +142,7 @@ class Flood {
 
     popCheapestHead(heads) {
         heads.sort((a, b) => {
-            const aCost = this.flooded.get(`${a.x},${a.y}`)?.cost ?? 0;
-            const bCost = this.flooded.get(`${b.x},${b.y}`)?.cost ?? 0;
-            return bCost - aCost;
+            return b.cost - a.cost;
         });
         return heads.pop();
     }
@@ -153,7 +166,7 @@ class Maze {
         this.end = null;
     }
 
-    addRow(row) {
+    addRow(row) {        
         this.grid.push(row);
         if (this.start === null) {
             const startX = row.indexOf('S');
@@ -181,10 +194,10 @@ class Context {
 
     onClose() {
         console.log(`Board size: ${this.maze.grid[0].length} by ${this.maze.grid.length}`);
-        const flood = new Flood(this.maze, new StepTurnPriceList());
+        const flood = new Flood(this.maze, new StepOrTurnPriceList());
         flood.flood();
         const floodedMaze = flood.floodedMaze();
-        const path = new Path(new StepTurnPriceList());
+        const path = new Path(new StepAndTurnPriceList());
         path.backtrack(flood, this.maze.start.x, this.maze.start.y, '>');
         console.log(floodedMaze.grid.map(row => row.join('')).join('\n'));
         console.log(path.toMaze(this.maze).grid.map(row => row.join('')).join('\n'));
