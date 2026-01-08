@@ -5,6 +5,18 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "2025 Day 3 debug",
+            "type": "node",
+            "request": "launch",
+            "runtimeExecutable": "bash",
+            "runtimeArgs": [
+                "-c",
+                "cat ${workspaceFolder}/2025/day3/test.txt | node ${workspaceFolder}/2025/day3/context.mjs"
+            ],
+            "cwd": "${workspaceFolder}/2025/day3",
+            "console": "integratedTerminal"
+        },
+        {
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
